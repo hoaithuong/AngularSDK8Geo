@@ -29,7 +29,7 @@ export interface IExtendedExportConfig extends IExportConfig {
 export class ExampleWithExportComponent implements OnInit {
   exportResult: IExportFunction;
   
-  private rootDomIDExport: string;
+  public rootDomIDExport: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomIDExport);

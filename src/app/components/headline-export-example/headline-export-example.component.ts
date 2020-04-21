@@ -32,7 +32,7 @@ export class HeadlineExportExampleComponent implements OnInit {
   secondaryMeasure = Model.measure(franchiseFeesAdRoyaltyIdentifier).format("#,##0");
   filters = [Model.absoluteDateFilter(dateDataSetUri, "2017-01-01", "2017-12-31")];
  
-  private rootDomID: string;
+  public rootDomID: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);

@@ -53,9 +53,9 @@ export class ResponsiveExampleComponent implements OnInit {
     ],
   }
  
-  private rootDomID: string;
-  private btn8x2RootID: string;
-  private btn5x4RootID: string;
+  public rootDomID: string;
+  public btn8x2RootID: string;
+  public btn5x4RootID: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);

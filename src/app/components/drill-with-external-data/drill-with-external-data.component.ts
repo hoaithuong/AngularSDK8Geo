@@ -57,16 +57,15 @@ export interface ColumnChartDrillExampleProps {
 export class DrillWithExternalDataComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   location: any;
   state: any;
-  employeeProfile: {
-    employeeName: any;
-    dob: any;
-    gender: any;
-    id: any;
-    born_city: any;
-    born_location: any;
-    phone: any;
-    registeredDate: any;
-  }
+  employeeName: any;
+  dob: any;
+  gender: any;
+  id: any;
+  born_city: any;
+  born_location: any;
+  phone: any;
+  registeredDate: any;
+  born_state: any;
 
   employee3rdPartyData: {
     error: null,
