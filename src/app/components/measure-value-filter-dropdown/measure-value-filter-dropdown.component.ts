@@ -127,7 +127,7 @@ toggleDropdown = () => {
     const { displayDropdown } = this.state;
     return {
       isActive: displayDropdown,
-      measureTitle: "Measure",
+      measureTitle: "Custom button",
       onClick: this.toggleDropdown,
     };
   }
