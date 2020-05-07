@@ -24,11 +24,16 @@
                   <a class='gd-tab' mat-list-item [routerLink]="'/measure-value-filter/filter-by-measure-value'"> Filter by Measure Value</a>
                   <a class='gd-tab is-active' mat-list-item [routerLink]="'/measure-value-filter/measure-value-filter-component'"> Measure Value Filter Component </a>
                 </div> 
-                  <h2>Measure Value Filter Component</h2> 
+                  <h1>Measure Value Filter Component</h1> 
                   <p>This is a set of components for managing measure value filters.</p>
                   <hr class="separator"/>
-                  <h2>Dropdown</h2>
                   <div *ngFor="let item of measureValueFilterComponentArray"> 
+                    <p>{{ item.content }}</p>
+                    <app-example-with-source [for]='item.for' [ts]='item.ts' [html]='item.html' [css]='item.css'></app-example-with-source>
+                  </div>
+                  <hr class="separator"/>
+                  <h1>Dropdown with custom button</h1>
+                  <div *ngFor="let item of measureValueFilterCustomArray"> 
                     <p>{{ item.content }}</p>
                     <app-example-with-source [for]='item.for' [ts]='item.ts' [html]='item.html' [css]='item.css'></app-example-with-source>
                   </div>

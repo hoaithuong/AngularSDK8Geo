@@ -142,7 +142,10 @@ import { ChartConfigComponentsComponent } from './routes/chart-config-components
 import { ExampleWithSourceComponent } from './components/utils/example-with-source/example-with-source.component';
 import { DynamicMeasureComponent } from './components/dynamic-measure/dynamic-measure.component';
 import { DynamicMeasureComponentComponent } from './routes/dynamic-measure-component/dynamic-measure-component.component';
-import { AttributeElementComponent } from './components/attribute-element/attribute-element.component'
+import { AttributeElementComponent } from './components/attribute-element/attribute-element.component';
+import { MeasureValueFilterComponentExampleComponent } from './components/measure-value-filter-component-example/measure-value-filter-component-example.component';
+import { MeasureValueFilterComponentPercentageExampleComponent } from './components/measure-value-filter-component-percentage-example/measure-value-filter-component-percentage-example.component';
+import { MeasureValueFilterComponentShowInPercentComponent } from './components/measure-value-filter-component-show-in-percent/measure-value-filter-component-show-in-percent.component'
 
 @NgModule({
     imports: [
@@ -287,9 +290,11 @@ import { AttributeElementComponent } from './components/attribute-element/attrib
         ExampleWithSourceComponent,
         DynamicMeasureComponent,
         DynamicMeasureComponentComponent,
-        AttributeElementComponent
+        AttributeElementComponent,
+        MeasureValueFilterComponentExampleComponent,
+        MeasureValueFilterComponentPercentageExampleComponent,
+        MeasureValueFilterComponentShowInPercentComponent
 
-        
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -389,7 +394,10 @@ import { AttributeElementComponent } from './components/attribute-element/attrib
         VisualizationDonutChartByUriComponent,
         VisualizationBulletChartByUriComponent,
         DynamicMeasureComponent,
-        AttributeElementComponent
+        AttributeElementComponent,
+        MeasureValueFilterComponentExampleComponent,
+        MeasureValueFilterComponentPercentageExampleComponent,
+        MeasureValueFilterComponentShowInPercentComponent
     ]
 })
 
