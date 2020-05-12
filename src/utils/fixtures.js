@@ -8,7 +8,7 @@ const demoProject = {
     "https://developer.na.gooddata.com": "xms7ga4tf3g3nzucd8380o2bev8oeknp",
 };
 
-const backendUrl = "https://staging3.intgdc.com"; // eslint-disable-line no-undef
+const backendUrl = "https://developer.na.gooddata.com"; // eslint-disable-line no-undef
 const demoProjectId = demoProject[backendUrl];
 if (!demoProjectId) {
     console.error(`[fixtures.js] ProjectId for backend "${backendUrl}" is not in `, demoProject); // eslint-disable-line no-console
@@ -103,5 +103,7 @@ export const columnsVisualizationIdentifier = "aabOspdLbbvs";
 export const dualAxisBarVisualizationIdentifier = "acSoPx4Mc7Rr";
 export const totalCostsLocalIdentifier = "aaQHncjzfrtR";
 export const totalSalesLocalIdentifier = "c11c27a0b0314a83bfe5b64ab9de7b89";
+export const mvfVisualizationIdentifier = "aac9xsxYf2oq";
+export const mvfVisualizationUri = `/gdc/md/${projectId}/obj/12139`;
 
 

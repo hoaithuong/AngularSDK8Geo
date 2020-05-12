@@ -8,8 +8,7 @@ To run *GoodData.UI Angular Examples* locally:
 git clone <this-repository>
 cd  <repository-folder>
 npm install
-npm install angular/cli
-npm start
+npm run dev
 ```
 Then open https://localhost:4200 and login using Gooddata account 
 
@@ -28,6 +27,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Deploy app to heroku
+```bash
+git clone <this-repository>
+cd  <repository-folder>
+heroku login (if heroku cli is not installed yet, install it from here https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+heroku create <app_name>
+git push heroku <local_branch>:master
+```
 
 ## Further help
 

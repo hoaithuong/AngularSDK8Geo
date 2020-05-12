@@ -29,6 +29,7 @@ export interface Employees {
   avatarUrl: any;
   startDate: any;
   uri?: any;
+  job_title?: any;
 }
 
 interface KpiCheckAmountProps {

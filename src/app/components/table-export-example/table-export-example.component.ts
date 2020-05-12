@@ -71,7 +71,7 @@ export class TableExportExampleComponent implements OnInit {
     },
   ];
  
-  private rootDomID: string;
+  public rootDomID: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);

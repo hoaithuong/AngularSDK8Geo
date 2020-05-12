@@ -34,7 +34,7 @@ export class BarChartExportExampleComponent implements OnInit {
   locationResort = [Model.attribute(locationResortIdentifier)];
   filters = [Model.absoluteDateFilter(dateDataSetUri, "2017-01-01", "2017-12-31")]
 
-  private rootDomID: string;
+  public rootDomID: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);

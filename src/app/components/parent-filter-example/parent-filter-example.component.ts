@@ -73,9 +73,9 @@ export class ParentFilterExampleComponent implements OnInit {
     self.render();
   }
 
-  private ChartrootDomID: string;
-  private StaterootDomID: string;
-  private CityrootDomID: string;
+  public ChartrootDomID: string;
+  public StaterootDomID: string;
+  public CityrootDomID: string;
 
   protected getChartRootDomNode() {
     const node = document.getElementById(this.ChartrootDomID);

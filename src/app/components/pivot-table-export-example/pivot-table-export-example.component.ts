@@ -54,7 +54,7 @@ export class PivotTableExportExampleComponent implements OnInit {
   filters = [Model.absoluteDateFilter(dateDataSetUri, "2017-01-01", "2017-12-31")];
   pageSize = 20;
  
-  private rootDomID: string;
+  public rootDomID: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);

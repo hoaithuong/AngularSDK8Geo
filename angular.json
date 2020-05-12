@@ -47,8 +47,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "7mb",
+                  "maximumError": "7mb"
                 }
               ]
             }
@@ -59,7 +59,6 @@
           "options": {
             "browserTarget": "angular-registration-login-example:build",
             "proxyConfig": "src/proxy.conf.json"
-            
           },
           "configurations": {
             "production": {
@@ -133,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "angular-registration-login-example"
+  "defaultProject": "angular-registration-login-example",
+  "cli": {
+    "analytics": false
+  }
 }

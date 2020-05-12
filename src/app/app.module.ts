@@ -49,6 +49,8 @@ import { VisualizationBarChartComponent } from './visualizations/visualization-b
 import { VisualizationBarChartByUriComponent } from './visualizations/visualization-bar-chart-by-uri/visualization-bar-chart-by-uri.component';
 import { VisualizationLineChartComponent } from './visualizations/visualization-line-chart/visualization-line-chart.component';
 import { VisualizationLineChartByUriComponent } from './visualizations/visualization-line-chart-by-uri/visualization-line-chart-by-uri.component';
+import { VisualizationApplyMeasureValueFilterComponent } from './visualizations/visualization-apply-measure-value-filter/visualization-apply-measure-value-filter.component';
+import { VisualizationApplyMeasureValueFilterUriComponent } from './visualizations/visualization-apply-measure-value-filter-uri/visualization-apply-measure-value-filter-uri.component';
 import { MeasureSortingExampleComponent } from './components/measure-sorting-example/measure-sorting-example.component';
 import { AttributeSortingExampleComponent } from './components/attribute-sorting-example/attribute-sorting-example.component';
 import { SamePeriodColumnChartExampleComponent } from './components/same-period-column-chart-example/same-period-column-chart-example.component';
@@ -197,6 +199,8 @@ import { MeasureValueFilterComponentShowInPercentComponent } from './components/
         VisualizationBarChartByUriComponent,
         VisualizationLineChartComponent,
         VisualizationLineChartByUriComponent,
+        VisualizationApplyMeasureValueFilterComponent,
+        VisualizationApplyMeasureValueFilterUriComponent,
         PivotTableTotalsComponent,
         MeasureSortingExampleComponent,
         AttributeSortingExampleComponent,

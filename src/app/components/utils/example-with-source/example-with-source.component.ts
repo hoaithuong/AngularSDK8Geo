@@ -61,9 +61,9 @@ export class ExampleWithSourceComponent implements OnInit {
     this.render();
   }
 
-  private rootDomIDSRC: string;
-  private rootDomIDHTML: string;
-  private rootDomIDCSS: string;
+  public rootDomIDSRC: string;
+  public rootDomIDHTML: string;
+  public rootDomIDCSS: string;
 
   protected getRootDomNodeSRC() {
     const node = document.getElementById(this.rootDomIDSRC);
