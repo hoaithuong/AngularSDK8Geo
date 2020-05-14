@@ -28,28 +28,15 @@ interface PieChartColorMappingProps {
   selector: 'app-pie-chart-color-mapping',
   template: '<div class="pie-chart-color-mapping" style="height:300px" [id]="rootDomID"></div>'
 })
+
 export class PieChartColorMappingComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() viewBy: any;
-  @Input() filters: any[];
-  @Input() sortBy: any[];
-
-  onLoadingChanged(...params) {
-    // eslint-disable-next-line no-console
-    return console.log("PieChartColorMappingComponent onLoadingChanged", ...params);
-  }
-
-  onError(...params) {
-    // eslint-disable-next-line no-console
-    return console.log("PieChartColorMappingComponent onError", ...params);
-  }
-
   localIdentifiers = {
     numberOfRestaurants: "numberOfRestaurants",
     totalSales: "totalSales",
     averageRestaurantSales: "averageRestaurantSales",
   };
 
-  xMeasures = [
+  measures = [
     Model.measure(franchiseFeesAdRoyaltyIdentifier).format("#,##0").localIdentifier("franchiseFeesAdRoyaltyIdentifier"),
     Model.measure(franchiseFeesInitialFranchiseFeeIdentifier).format("#,##0").localIdentifier("franchiseFeesInitialFranchiseFeeIdentifier"),
     Model.measure(franchiseFeesIdentifierOngoingRoyalty).format("#,##0").localIdentifier("franchiseFeesIdentifierOngoingRoyalty"),
@@ -86,22 +73,22 @@ export class PieChartColorMappingComponent implements OnInit, OnDestroy, OnChang
       },
     ],
   }
+
   public rootDomID: string;
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): PieChartColorMappingProps | PieChartColorMappingBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.viewBy,
-      filters: this.filters,
-      sortBy: this.sortBy,
+      measures: this.measures,
       config: this.config,
     };
   }
+
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
@@ -111,17 +98,22 @@ export class PieChartColorMappingComponent implements OnInit, OnDestroy, OnChang
       ReactDOM.render(React.createElement(PieChart, this.getProps()), this.getRootDomNode());
     }
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
+  
   ngOnChanges() {
     this.render();
   }
+
   ngAfterViewInit() {
     this.render();
   }
+
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }

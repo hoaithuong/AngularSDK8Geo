@@ -16,10 +16,8 @@ interface ArithmeticMeasureSumBucketProps {
   projectId: any;
   measures?: any[];
   attributes?: any[];
-  totals?: any[];
-  filters?: any[];
-  sortBy?: any[];
 }
+
 interface ArithmeticMeasureSumProps {
   projectId: any;
 }
@@ -28,19 +26,16 @@ interface ArithmeticMeasureSumProps {
   selector: 'app-arithmetic-measures-sum',
   template: '<div class="arithmetic-measures-sum" style="height:200px" [id]="rootDomID"></div>'
 })
-export class ArithmeticMeasureSumComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() totals: any[];
-  @Input() filters: any[];
-  @Input() sortBy: any[];
 
+export class ArithmeticMeasureSumComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   localIdentifiers = {
     franchiseFeesAdRoyalty: "franchiseFeesAdRoyalty",
     franchiseFeesOngoingRoyalty: "franchiseFeesOngoingRoyalty",
     franchiseFeesSum: "franchiseFeesSum",
     franchiseFeesDifference: "franchiseFeesDifference",
-  };
+  }
 
-  xMeasures = [
+  measures = [
     Model.measure(franchiseFeesAdRoyaltyIdentifier)
       .localIdentifier(this.localIdentifiers.franchiseFeesAdRoyalty)
       .format("#,##0"),
@@ -63,7 +58,7 @@ export class ArithmeticMeasureSumComponent implements OnInit, OnDestroy, OnChang
       .title("$ Ongoing / Ad Royalty Difference"),
   ]
 
-  xAttributes = [Model.attribute(locationStateDisplayFormIdentifier).localIdentifier("month")]
+  attributes = [Model.attribute(locationStateDisplayFormIdentifier).localIdentifier("month")]
 
   public rootDomID: string;
 
@@ -76,11 +71,8 @@ export class ArithmeticMeasureSumComponent implements OnInit, OnDestroy, OnChang
   protected getProps(): ArithmeticMeasureSumProps | ArithmeticMeasureSumBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      attributes: this.xAttributes,
-      totals: this.totals,
-      filters: this.filters,
-      sortBy: this.sortBy,
+      measures: this.measures,
+      attributes: this.attributes
     };
   }
 
@@ -112,4 +104,3 @@ export class ArithmeticMeasureSumComponent implements OnInit, OnDestroy, OnChang
   }
 
 }
-export default ArithmeticMeasureSumComponent;

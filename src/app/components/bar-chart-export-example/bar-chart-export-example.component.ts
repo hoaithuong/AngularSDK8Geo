@@ -80,4 +80,5 @@ export class BarChartExportExampleComponent implements OnInit {
   ngAfterViewInit() {
     this.render();
   }  
+  
 }

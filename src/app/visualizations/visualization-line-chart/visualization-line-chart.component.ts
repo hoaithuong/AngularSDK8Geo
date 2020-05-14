@@ -2,27 +2,21 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { projectId, lineVisualizationIdentifier } from "../../../utils/fixtures";
 import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationLineChartProps {
   projectId: any;
   identifier: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
   selector: 'app-visualization-line-chart',
   template: '<div class="visualization-line-chart" style="height:300px" [id]="rootDomID"></div>',
 })
-export class VisualizationLineChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() projectId: any;
-  @Input() identifier: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
 
+export class VisualizationLineChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -35,8 +29,6 @@ export class VisualizationLineChartComponent implements OnInit, OnDestroy, OnCha
     return {
       projectId: projectId,
       identifier: lineVisualizationIdentifier,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
     };
   }
 
@@ -66,4 +58,5 @@ export class VisualizationLineChartComponent implements OnInit, OnDestroy, OnCha
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

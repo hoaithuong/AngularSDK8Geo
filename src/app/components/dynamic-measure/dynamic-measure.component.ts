@@ -3,16 +3,17 @@ import '@gooddata/react-components/styles/css/main.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
-import { LineChart, ColumnChart, ErrorComponent, LoadingComponent, Model } from "@gooddata/react-components";
+import { LineChart, ColumnChart, ErrorComponent, Model } from "@gooddata/react-components";
 import sdk from "@gooddata/gooddata-js";
 import { monthDateIdentifier, projectId, franchiseFeesTag } from "../../../utils/fixtures";
 
 let self: any;
+
 export interface LineChartBucketProps {
   projectId: any;
   measures: any[];
-  trendBy?: (any);
-  segmentBy?: (any);
+  trendBy?: any;
+  segmentBy?: any;
   filters?: any[];
   sortBy?: any[];
   config?: any;
@@ -22,8 +23,8 @@ export interface LineChartBucketProps {
 export interface ColumnChartBucketProps {
   projectId: any;
   measures: any[];
-  viewBy?: (any);
-  stackBy?: (any);
+  viewBy?: any;
+  stackBy?: any;
   filters?: any[];
   sortBy?: any[];
   config?: any;
@@ -54,6 +55,7 @@ export class DynamicMeasureComponent implements OnInit {
   root: any;
   lineChartDM: string;
   columnChartDM: string;
+  
   constructor() {
     this.measureList = null;
     this.error = null;

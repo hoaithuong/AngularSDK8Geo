@@ -5,6 +5,7 @@ import * as invariant from 'invariant';
 import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { AttributeFilter, Model } from '@gooddata/react-components';
 import { VisualizationInput } from '@gooddata/typings';
+
 import {
   locationResortIdentifier,
   locationResortUri,
@@ -216,10 +217,10 @@ export class AttributeFilterComponent implements OnInit, OnDestroy, OnChanges, A
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
-    this.rootFilterByURI = 'rootFilterByURI';
-    this.rootFilterDefinition = 'rootFilterDefinition';
-    this.rootOnApplyWithFilterDefinition = 'rootOnApplyWithFilterDefinition';
+    this.rootDomID = uuid.v4();
+    this.rootFilterByURI = uuid.v4();
+    this.rootFilterDefinition = uuid.v4();
+    this.rootOnApplyWithFilterDefinition = uuid.v4();
   }
 
   ngOnChanges() {

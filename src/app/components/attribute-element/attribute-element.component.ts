@@ -40,6 +40,15 @@ export class AttributeFilterItem extends React.Component<AttributeElement> {
 
 export class AttributeElementComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   public rootDomID: string;
+  isLoading: any;
+  offset: any;
+  count: any;
+  total: any;
+  nextOffset: any;
+  loadMore: any;
+  validElements: any[];
+  disabled: boolean = this.isLoading || this.offset+ this.count === this.total;
+  
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);
@@ -58,14 +67,6 @@ export class AttributeElementComponent implements OnInit, OnChanges, OnDestroy, 
       title: title
     });
   }
-  isLoading: any;
-  offset: any;
-  count: any;
-  total: any;
-  nextOffset: any;
-  loadMore: any;
-  validElements: any[];
-  disabled: boolean = this.isLoading || this.offset+ this.count === this.total;
   
   render() {
     ReactDOM.render(React.createElement(AttributeElements, {

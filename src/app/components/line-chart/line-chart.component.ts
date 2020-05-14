@@ -8,7 +8,6 @@ import { LineChart, Model } from '@gooddata/react-components';
 import {
   projectId,
   totalSalesIdentifier,
-  locationStateAttributeIdentifier,
   locationResortIdentifier,
   franchiseFeesIdentifier,
 } from "../../../utils/fixtures";
@@ -17,13 +16,14 @@ import { CUSTOM_COLOR_PALETTE } from "../../../utils/colors";
 
 interface LineChartBucketProps {
   measures: any[];
-  trendBy?: (any);
-  segmentBy?: (any);
+  trendBy?: any;
+  segmentBy?: any;
   filters?: any[];
   sortBy?: any[];
   config?: any;
   locale?: any;
 }
+
 interface LineChartProps {
   projectId: any;
 }
@@ -32,22 +32,19 @@ interface LineChartProps {
   selector: 'app-line-chart',
   template: '<div class="line-chart" style="height:500px" [id]="rootDomID"></div>',
 })
-export class LineChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() segmentBy: (any);
-  @Input() locale: any;
 
-  xMeasures = [
+export class LineChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(totalSalesIdentifier)
       .format("#,##0")
       .alias("$ Total Sales"),
     Model.measure(franchiseFeesIdentifier)
       .alias("Franchise Fee")
-      .format("$#,##0.00")]
-
-  xTrendBy = Model.attribute(locationResortIdentifier)
+      .format("$#,##0.00")
+  ]
+  trendBy = Model.attribute(locationResortIdentifier)
   filterLocationResort = [Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)]
-  xconfig = {
+  config = {
     colorPalette: CUSTOM_COLOR_PALETTE,
     dataLabels: {
       visible: 'auto'
@@ -69,27 +66,27 @@ export class LineChartComponent implements OnInit, OnDestroy, OnChanges, AfterVi
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): LineChartProps | LineChartBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      trendBy: this.xTrendBy,
-      segmentBy: this.segmentBy,
+      measures: this.measures,
+      trendBy: this.trendBy,
       filters: this.filterLocationResort,
-      sortBy: this.sortBy,
-      config: this.xconfig
+      config: this.config
     };
   }
 
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(LineChart, this.getProps()), this.getRootDomNode());
     }
-
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
@@ -101,6 +98,7 @@ export class LineChartComponent implements OnInit, OnDestroy, OnChanges, AfterVi
   ngAfterViewInit() {
     this.render();
   }
+  
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())

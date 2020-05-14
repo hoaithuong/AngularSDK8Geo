@@ -20,6 +20,7 @@ interface ColumnChartBucketProps {
   sortBy?: any[];
   config?: any;
 }
+
 interface ColumnChartProps {
   projectId: any;
 }
@@ -28,10 +29,9 @@ interface ColumnChartProps {
   selector: 'app-column-chart',
   template: '<div class="column-chart" style="height:500px" [id]="rootDomID"></div>',
 })
-export class ColumnChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() stackBy: any;
 
-  xMeasures = [
+export class ColumnChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(totalSalesIdentifier)
       .format("#,##0")
       .alias("$ Total Sales")
@@ -41,13 +41,12 @@ export class ColumnChartComponent implements OnInit, OnDestroy, OnChanges, After
       .format("$#,##0.00")
       .localIdentifier(franchiseFeesAdRoyaltyIdentifier)
   ]
-
-  xViewBy = [Model.attribute(locationResortIdentifier).localIdentifier(locationResortIdentifier)]
+  viewBy = [Model.attribute(locationResortIdentifier).localIdentifier(locationResortIdentifier)]
   filterLocationResort = [Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)]
-  xSortByMeasure = [Model.measureSortItem(totalSalesIdentifier, "desc")]
-  xSortByAttribute = [Model.attributeSortItem(locationResortIdentifier, "desc")]
+  sortByMeasure = [Model.measureSortItem(totalSalesIdentifier, "desc")]
+  sortByAttribute = [Model.attributeSortItem(locationResortIdentifier, "desc")]
 
-  xconfig = {
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -70,21 +69,22 @@ export class ColumnChartComponent implements OnInit, OnDestroy, OnChanges, After
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): ColumnChartProps | ColumnChartBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.xViewBy,
-      stackBy: this.stackBy,
+      measures: this.measures,
+      viewBy: this.viewBy,
       filters: this.filterLocationResort,
-      sortBy: this.xSortByMeasure,
-      config: this.xconfig
+      sortBy: this.sortByMeasure,
+      config: this.config
     };
   }
 
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(ColumnChart, this.getProps()), this.getRootDomNode());

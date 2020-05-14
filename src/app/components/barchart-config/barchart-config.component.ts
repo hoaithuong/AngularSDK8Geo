@@ -9,8 +9,7 @@ import {
   menuCategoryAttributeDFIdentifier,
   projectId, totalSalesIdentifier,
   locationResortIdentifier
-}
-  from "../../../utils/fixtures";
+} from "../../../utils/fixtures";
 import { CUSTOM_COLOR_PALETTE } from "../../../utils/colors";
 
 interface BarchartProps {
@@ -32,17 +31,22 @@ let self: any;
 export class BarchartConfigComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   public rootDomID: string;
   defaultProperties = {};
+
   state = {
     config: this.defaultProperties,
     customPaletteUsed: false,
     customLegendUsed: true,
     customSeparatorUsed: true,
-  };
+  }
+  
   config = this.state;
+  
   amount = [Model.measure(totalSalesIdentifier)
     .format("#,##0")
     .alias("$ Total Sales")];
+
   locationResort = Model.attribute(locationResortIdentifier).localIdentifier("location_resort");
+  
   menuCategory = Model.attribute(menuCategoryAttributeDFIdentifier).localIdentifier(
     menuCategoryAttributeDFIdentifier,
   );

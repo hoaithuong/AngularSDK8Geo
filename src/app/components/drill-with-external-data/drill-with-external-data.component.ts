@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import * as moment from 'moment';
 import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-
 import '@gooddata/react-components/styles/css/main.css';
 import {
   Table,

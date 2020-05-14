@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { ColumnChart, Model } from '@gooddata/react-components';
 
 import {
@@ -15,8 +15,6 @@ interface AttributeSortingProps {
   projectId: any;
   measures: any[];
   viewBy?: any[];
-  stackBy?: any;
-  filters?: any[];
   sortBy?: any[];
   config?: any;
 }

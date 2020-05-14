@@ -9,7 +9,6 @@ import {
   locationNameDisplayFormIdentifier,
   franchisedSalesIdentifier,
 } from '../../../utils/fixtures';
-import classNames from "classnames";
 
 export interface PivotTableBucketProps {
   projectId: any;

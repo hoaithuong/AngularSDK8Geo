@@ -17,13 +17,11 @@ interface BubbleChartBucketProps {
   yAxisMeasure?: any;
   size?: any;
   viewBy?: any;
-  filters?: any[];
-  sortBy?: any[];
   config?: any;
-  locale?: any;
 }
+
 interface BubbleChartProps {
-  projectId: (any);
+  projectId: any;
 }
 
 @Component({
@@ -32,11 +30,6 @@ interface BubbleChartProps {
 })
 
 export class BubbleChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() locale: any;
-  @Input() config: any;
-  @Input() sortBy: any[];
-  @Input() filters: any[];
-
   xAxismeasure = Model.measure(totalSalesIdentifier).format("#,##0").alias("$ Total Sales")
 
   yAxismeasure = Model.measure(franchiseFeesIdentifier).alias("Franchise Fee").format("$#,##0.00")
@@ -45,7 +38,7 @@ export class BubbleChartComponent implements OnInit, OnDestroy, OnChanges, After
 
   viewBy = Model.attribute(locationResortIdentifier)
 
-  xconfig = {
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -73,10 +66,7 @@ export class BubbleChartComponent implements OnInit, OnDestroy, OnChanges, After
       yAxisMeasure: this.yAxismeasure,
       size: this.size,
       viewBy: this.viewBy,
-      filters: this.filters,
-      config: this.xconfig,
-      sortBy: this.sortBy,
-      locale: this.locale,
+      config: this.config,
     };
   }
 
@@ -106,4 +96,5 @@ export class BubbleChartComponent implements OnInit, OnDestroy, OnChanges, After
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }

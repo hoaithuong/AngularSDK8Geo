@@ -59,7 +59,7 @@ export class AttributeFilterDefinitionByURIComponent implements OnInit, OnDestro
 
   rows = [Model.attribute(locationResortIdentifier).localIdentifier('locationResort')];
 
-  xfilters = Model.positiveAttributeFilter(locationResortIdentifier, [`/gdc/md/${projectId}/obj/2206/elements?id=6340103`], false);
+  defaultFilter = Model.positiveAttributeFilter(locationResortIdentifier, [`/gdc/md/${projectId}/obj/2206/elements?id=6340103`], false);
 
   public rootAttributeFilterDomID: string;
   public tableRoomDataID: string;
@@ -80,7 +80,7 @@ export class AttributeFilterDefinitionByURIComponent implements OnInit, OnDestro
     return {
       projectId: projectId,
       fullscreenOnMobile: false,
-      filter: this.xfilters,
+      filter: this.defaultFilter,
       onApply: this.onApply,
     };
   }
@@ -104,11 +104,6 @@ export class AttributeFilterDefinitionByURIComponent implements OnInit, OnDestro
     return !!this.rootAttributeFilterDomID;
   }
 
-  onLoadingChanged(...params) {
-    // tslint:disable-next-line: no-console
-    console.info('AttributeFilterDefinitionByURIComponent onLoadingChanged', ...params);
-  }
-
   onApply(filter) {
     self.message = null;
     if (filter.in) {
@@ -117,11 +112,6 @@ export class AttributeFilterDefinitionByURIComponent implements OnInit, OnDestro
       self.filters = self.filterNegativeAttribute(filter);
     }
     self.renderPivotTable();
-  }
-
-  onError(...params) {
-    // tslint:disable-next-line: no-console
-    console.info('AttributeFilterDefinitionByURIComponent onLoadingChanged', ...params);
   }
 
   public filterPositiveAttribute(filter) {
@@ -173,8 +163,8 @@ export class AttributeFilterDefinitionByURIComponent implements OnInit, OnDestro
 
   ngOnInit() {
     self = this;
-    this.rootAttributeFilterDomID = uuid.v1();
-    this.tableRoomDataID = 'tableRoomDataID';
+    this.rootAttributeFilterDomID = uuid.v4();
+    this.tableRoomDataID = uuid.v4();
   }
 
   ngOnChanges() {

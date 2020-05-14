@@ -2,27 +2,21 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-import { projectId, pivotTableVisualizationIdentifier } from "../../../utils/fixtures";
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { projectId, tableVisualizationIdentifier } from "../../../utils/fixtures";
 import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationAreaChartProps {
   projectId: any;
   identifier: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
   selector: 'app-visualization-pivot-table',
   template: '<div class="visualization-pivot-table" style="height:300px" [id]="rootDomID"></div>',
 })
-export class VisualizationPivotTableComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() projectId: any;
-  @Input() identifier: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
 
+export class VisualizationTableComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -34,9 +28,7 @@ export class VisualizationPivotTableComponent implements OnInit, OnDestroy, OnCh
   protected getProps(): VisualizationAreaChartProps {
     return {
       projectId: projectId,
-      identifier: pivotTableVisualizationIdentifier,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
+      identifier: tableVisualizationIdentifier,
     };
   }
 
@@ -66,4 +58,5 @@ export class VisualizationPivotTableComponent implements OnInit, OnDestroy, OnCh
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }

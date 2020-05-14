@@ -48,7 +48,6 @@ export class BulletChartComponent implements OnInit, OnDestroy, OnChanges, After
   filters = [
     Model.positiveAttributeFilter(locationNameDisplayFormIdentifier,['Aventura','Irving'],true),
     Model.negativeAttributeFilter(locationResortIdentifier,['Deerfield Beach'],true),
-    // Model.relativeDateFilter(dateDataSetUri, "GDC.time.year", -4, -3),
     Model.absoluteDateFilter(dateDataSetUri, "2016-01-01", "2017-12-31")
   ];
 

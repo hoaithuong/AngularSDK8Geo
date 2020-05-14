@@ -22,6 +22,7 @@ interface SamePeriodColumnChartExampleBucketProps {
   onLoadingChanged?: any;
   onError?: any;
 }
+
 interface SamePeriodColumnChartExampleProps {
   projectId: any;
 }
@@ -30,18 +31,15 @@ interface SamePeriodColumnChartExampleProps {
   selector: 'app-same-period-column-chart-example',
   template: '<div class="same-period-column-chart-example" style="height:500px" [id]="rootDomID"></div>',
 })
-export class SamePeriodColumnChartExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() filters: any[];
-  @Input() stackBy: any;
 
-  xMeasures = [
+export class SamePeriodColumnChartExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.popMeasure("totalSales", yearDateDataSetAttributeIdentifier).alias("$ Total Sales - SP year ago"),
     Model.measure(totalSalesIdentifier).localIdentifier("totalSales").alias("$ Total Sales"),]
 
-  xViewBy = [Model.attribute(quarterDateIdentifier)]
+  viewBy = [Model.attribute(quarterDateIdentifier)]
 
-  xconfig = {
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -77,12 +75,9 @@ export class SamePeriodColumnChartExampleComponent implements OnInit, OnDestroy,
   protected getProps(): SamePeriodColumnChartExampleProps | SamePeriodColumnChartExampleBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.xViewBy,
-      stackBy: this.stackBy,
-      filters: this.filters,
-      sortBy: this.sortBy,
-      config: this.xconfig,
+      measures: this.measures,
+      viewBy: this.viewBy,
+      config: this.config,
       onLoadingChanged: this.onLoadingChanged,
       onError: this.onError,
     };
@@ -91,12 +86,13 @@ export class SamePeriodColumnChartExampleComponent implements OnInit, OnDestroy,
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(ColumnChart, this.getProps()), this.getRootDomNode());
     }
-
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
@@ -108,6 +104,7 @@ export class SamePeriodColumnChartExampleComponent implements OnInit, OnDestroy,
   ngAfterViewInit() {
     this.render();
   }
+  
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())

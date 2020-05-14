@@ -20,6 +20,7 @@ interface BarChartBucketProps {
   sortBy?: any[];
   config?: any;
 }
+
 interface BarChartProps {
   projectId: any;
 }
@@ -28,11 +29,9 @@ interface BarChartProps {
   selector: 'app-bar-chart',
   template: '<div class="bar-chart" style="height:500px" [id]="rootDomID"></div>',
 })
-export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() stackBy: any
 
-  xMeasures = [
+export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(totalSalesIdentifier)
       .format("#,##0")
       .alias("$ Total Sales"),
@@ -40,9 +39,11 @@ export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
       .alias("Franchise Fee")
       .format("$#,##0.00")]
 
-  xViewBy = [Model.attribute(locationResortIdentifier)]
+  viewBy = [Model.attribute(locationResortIdentifier)]
+
   filterLocationResort = [Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)]
-  xconfig = {
+
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -57,6 +58,7 @@ export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
     stackMeasures: true,
     stackMeasuresToPercent: true
   }
+
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -64,26 +66,27 @@ export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): BarChartProps | BarChartBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.xViewBy,
-      stackBy: this.stackBy,
+      measures: this.measures,
+      viewBy: this.viewBy,
       filters: this.filterLocationResort,
-      config: this.xconfig
+      config: this.config
     };
   }
 
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(BarChart, this.getProps()), this.getRootDomNode());
     }
-
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
@@ -95,6 +98,7 @@ export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
   ngAfterViewInit() {
     this.render();
   }
+  
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())

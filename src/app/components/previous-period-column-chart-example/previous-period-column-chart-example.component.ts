@@ -16,6 +16,7 @@ interface PreviousPeriodColumnChartExampleBucketProps {
   onLoadingChanged?: any;
   onError?: any;
 }
+
 interface PreviousPeriodColumnChartExampleProps {
   projectId: any;
 }
@@ -24,19 +25,17 @@ interface PreviousPeriodColumnChartExampleProps {
   selector: 'app-previous-period-column-chart-example',
   template: '<div class="previous-period-column-chart-example" style="height:500px" [id]="rootDomID"></div>',
 })
-export class PreviousPeriodColumnChartExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() stackBy: any;
 
-  xMeasures = [
+export class PreviousPeriodColumnChartExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(totalSalesIdentifier).localIdentifier("totalSales").alias("$ Total Sales"),
     Model.previousPeriodMeasure("totalSales", [{ dataSet: dateDataSetUri, periodsAgo: 1 },]).alias("$ Total Sales - period ago"),]
 
-  xViewBy = [Model.attribute(quarterDateIdentifier)]
+  viewBy = [Model.attribute(quarterDateIdentifier)]
 
-  xFilters = [Model.relativeDateFilter(dateDataSetUri, "GDC.time.year", -2, -1)]
+  filters = [Model.relativeDateFilter(dateDataSetUri, "GDC.time.year", -2, -1)]
 
-  xconfig = {
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -69,15 +68,14 @@ export class PreviousPeriodColumnChartExampleComponent implements OnInit, OnDest
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): PreviousPeriodColumnChartExampleProps | PreviousPeriodColumnChartExampleBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.xViewBy,
-      stackBy: this.stackBy,
-      filters: this.xFilters,
-      sortBy: this.sortBy,
-      config: this.xconfig,
+      measures: this.measures,
+      viewBy: this.viewBy,
+      filters: this.filters,
+      config: this.config,
       onLoadingChanged: this.onLoadingChanged,
       onError: this.onError,
     };
@@ -86,12 +84,13 @@ export class PreviousPeriodColumnChartExampleComponent implements OnInit, OnDest
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(ColumnChart, this.getProps()), this.getRootDomNode());
     }
-
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
@@ -103,6 +102,7 @@ export class PreviousPeriodColumnChartExampleComponent implements OnInit, OnDest
   ngAfterViewInit() {
     this.render();
   }
+  
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())

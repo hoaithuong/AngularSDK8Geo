@@ -3,22 +3,16 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-
 import '@gooddata/react-components/styles/css/main.css';
 import { Table, Model } from '@gooddata/react-components';
 import {
   projectId,
-  quarterDateIdentifier,
   monthDateIdentifier,
-  locationStateDisplayFormIdentifier,
-  locationNameDisplayFormIdentifier,
   franchiseFeesIdentifier,
   franchiseFeesAdRoyaltyIdentifier,
   franchiseFeesInitialFranchiseFeeIdentifier,
   franchiseFeesIdentifierOngoingRoyalty,
-  menuCategoryAttributeDFIdentifier,
 } from '../../../utils/fixtures.js';
-
 
 interface TableBucketProps {
   projectId:any;
@@ -28,6 +22,7 @@ interface TableBucketProps {
   filters?: any[];
   sortBy?: any[];
 }
+
 interface TableProps {
   projectId: any;  
 }
@@ -35,16 +30,10 @@ interface TableProps {
 @Component({
   selector: 'app-table',
   template: '<div class="table" style="height:500px" [id]="rootDomID"></div>'
-  // templateUrl: './table.component.html',
-  // styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit  {
-  @Input() projectId: any;
-  //@Input() totals: any[];
-  @Input() filters: any[];
-  @Input() sortBy: any[];
 
-  xMeasures=[
+export class TableComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit  {
+  measures=[
     Model.measure(franchiseFeesIdentifier)
         .format("#,##0")
         .localIdentifier("franchiseFeesIdentifier"),
@@ -59,10 +48,9 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges, AfterViewIn
         .localIdentifier("franchiseFeesIdentifierOngoingRoyalty"),
   ]
 
-  xAttributes=[Model.attribute(monthDateIdentifier).localIdentifier("month")]
- 
+  attributes=[Model.attribute(monthDateIdentifier).localIdentifier("month")] 
 
-  xTotals = [
+  totals = [
     {
         measureIdentifier: "franchiseFeesIdentifier",
         type: "avg",
@@ -83,10 +71,7 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges, AfterViewIn
         type: "avg",
         attributeIdentifier: "month",
     },
-  ];
-
-
-//xSortBy = [Model.attributeSortItem("menu", "asc")]
+  ]
 
   public rootDomID: string;
 
@@ -99,11 +84,9 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges, AfterViewIn
   protected getProps(): TableProps | TableBucketProps {
     return {
       projectId: projectId,     
-      measures:this.xMeasures,
-      attributes:this.xAttributes,
-      totals:this.xTotals,
-      filters:this.filters,
-      sortBy:this.sortBy,
+      measures:this.measures,
+      attributes:this.attributes,
+      totals:this.totals,
     };
   }
 

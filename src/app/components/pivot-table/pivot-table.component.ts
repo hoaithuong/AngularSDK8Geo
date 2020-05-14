@@ -23,44 +23,33 @@ interface PivotTableBucketProps {
   measures?: any[];
   rows?: any[];
   columns?: any[];
-  totals?: any[];
-  filters?: any[];
   sortBy?: any[];
 }
+
 interface PivotTableProps {
   projectId: any;
-  pageSize: number;
-  config: (any);
-  groupRows: boolean;
-  exportTitle: string;
 }
 
 @Component({
   selector: 'app-pivot-table',
   template: '<div class="pivot-table" style="height:500px" [id]="rootDomID"></div>',
 })
-export class PivotTableComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() pageSize: number;
-  @Input() groupRows: boolean;
-  @Input() exportTitle: string;
-  @Input() totals: any[];
-  @Input() filters: any[];
-  @Input() config: any;
 
-  xMeasures = [
+export class PivotTableComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(franchiseFeesIdentifier).format("#,##0"),
     Model.measure(franchiseFeesAdRoyaltyIdentifier).format("#,##0"),
     Model.measure(franchiseFeesInitialFranchiseFeeIdentifier).format("#,##0"),
     Model.measure(franchiseFeesIdentifierOngoingRoyalty).format("#,##0"),
   ]
-  xRows = [
+  rows = [
     Model.attribute(locationStateDisplayFormIdentifier),
     Model.attribute(locationNameDisplayFormIdentifier),
     Model.attribute(menuCategoryAttributeDFIdentifier).localIdentifier("menu"),
   ]
-  xColumns = [Model.attribute(quarterDateIdentifier), Model.attribute(monthDateIdentifier)]
+  columns = [Model.attribute(quarterDateIdentifier), Model.attribute(monthDateIdentifier)]
 
-  xSortBy = [Model.attributeSortItem("menu", "asc")];
+  sortBy = [Model.attributeSortItem("menu", "asc")];
 
   public rootDomID: string;
 
@@ -73,16 +62,10 @@ export class PivotTableComponent implements OnInit, OnDestroy, OnChanges, AfterV
   protected getProps(): PivotTableProps | PivotTableBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      rows: this.xRows,
-      columns: this.xColumns,
-      totals: this.totals,
-      filters: this.filters,
-      sortBy: this.xSortBy,
-      pageSize: this.pageSize,
-      groupRows: this.groupRows,
-      exportTitle: this.exportTitle,
-      config: this.config
+      measures: this.measures,
+      rows: this.rows,
+      columns: this.columns,
+      sortBy: this.sortBy,
     };
   }
 

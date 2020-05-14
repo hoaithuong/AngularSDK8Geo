@@ -10,8 +10,6 @@ interface VisualizationBarChartProps {
   projectId: any;
   identifier:any;  
   filters: any[];
-  onLoadingChanged?: any;
-  onError?: any;
   onExportReady?: any;
 }
 
@@ -33,23 +31,11 @@ export class VisualizationColumnChartExportExampleComponent implements OnInit {
     return node;
   }
 
-  onLoadingChanged(...params) {
-    // eslint-disable-next-line no-console
-    console.info("VisualizationColumnChartExportExample onLoadingChanged", ...params);
-  }
-
-  onError(...params) {
-      // eslint-disable-next-line no-console
-      console.info("VisualizationColumnChartExportExample onLoadingChanged", ...params);
-  }
-
   protected getProps(): VisualizationBarChartProps {
     return {
       projectId:projectId,
       identifier: columnVisualizationIdentifierExport,
       filters: this.filters,
-      onLoadingChanged:this.onLoadingChanged,
-      onError:this.onError,
       onExportReady: this.ExportComponent.onExportReady,
     };
   }
@@ -70,4 +56,5 @@ export class VisualizationColumnChartExportExampleComponent implements OnInit {
   ngAfterViewInit() {
     this.render();
   }    
+  
 }
