@@ -2,27 +2,21 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { projectId, scatterVisualizationUri } from "../../../utils/fixtures";
 import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationScatterPlotByUriProps {
   projectId: any;
   uri: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
   selector: 'app-visualization-scatter-chart-by-uri',
   template: '<div class="visualization-scatter-chart-by-uri" style="height:500px" [id]="rootDomID"></div>',
 })
-export class VisualizationScatterPlotByUriComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() uri: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
 
+export class VisualizationScatterPlotByUriComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -35,8 +29,6 @@ export class VisualizationScatterPlotByUriComponent implements OnInit, OnDestroy
     return {
       projectId: projectId,
       uri: scatterVisualizationUri,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
     };
   }
 
@@ -66,5 +58,5 @@ export class VisualizationScatterPlotByUriComponent implements OnInit, OnDestroy
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
-}
 
+}

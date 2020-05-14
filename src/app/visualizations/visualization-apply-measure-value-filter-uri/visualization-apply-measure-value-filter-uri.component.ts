@@ -9,8 +9,6 @@ import { Visualization } from '@gooddata/react-components';
 interface VisualizationColumnChartProps {
   projectId: any;
   uri: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
@@ -19,9 +17,6 @@ interface VisualizationColumnChartProps {
 })
 
 export class VisualizationApplyMeasureValueFilterUriComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
-
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -34,8 +29,6 @@ export class VisualizationApplyMeasureValueFilterUriComponent implements OnInit,
     return {
       projectId: projectId,
       uri: mvfVisualizationUri,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
     };
   }
 
@@ -65,6 +58,5 @@ export class VisualizationApplyMeasureValueFilterUriComponent implements OnInit,
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }
-
-

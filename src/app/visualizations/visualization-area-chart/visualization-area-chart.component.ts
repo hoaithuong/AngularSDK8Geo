@@ -2,28 +2,22 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit ,OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 
 import { projectId, areaVisualizationIdentifier } from "../../../utils/fixtures";
-import { Visualization, Model } from '@gooddata/react-components';
+import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationAreaChartProps {
   projectId: any;
   identifier:any;  
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
   selector: 'app-visualization-area-chart',
   template: '<div class="visualization-area-chart" style="height:300px" [id]="rootDomID"></div>',
 })
-export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() projectId: any;
-  @Input() identifier: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
 
+export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -36,8 +30,6 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
     return {
       projectId:projectId,
       identifier: areaVisualizationIdentifier,
-      onLoadingChanged:this.onLoadingChanged,
-      onError:this.onError,
     };
   }
 
@@ -67,4 +59,5 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

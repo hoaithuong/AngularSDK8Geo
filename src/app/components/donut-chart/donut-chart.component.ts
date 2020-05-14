@@ -17,8 +17,9 @@ interface DonutChartBucketProps {
   sortBy?: any[];
   config?: any;
 }
+
 interface DonutChartProps {
-  projectId: (any);
+  projectId: any;
 }
 
 @Component({
@@ -27,8 +28,6 @@ interface DonutChartProps {
 })
 
 export class DonutChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() filters: any[];
-
   franchiseFee = [Model.measure(franchiseFeesAdRoyaltyIdentifier)
     .alias("Franchise Fee")
     .format("[>=100000][color=2190c0] #,##0.##$; [>=50000][color=A7BC0A] #,##0.##$; [>=20000][color=A7BC0A] #,##0.##$; [>=10000][color=EF3333] #,##0.##$; [>=0][color=c02190] #,##0.##$; [=Null] No data")
@@ -37,7 +36,7 @@ export class DonutChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
 
   locationState = Model.attribute(locationResortIdentifier)
 
-  xconfig = {
+  config = {
     colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)', 'rgb(213, 214, 0)', 'rgb(65, 69, 195)'],
     dataLabels: {
       visible: true
@@ -65,8 +64,7 @@ export class DonutChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
       projectId: projectId,
       measures: this.franchiseFee,
       viewBy: this.locationState,
-      filters: this.filters,
-      config: this.xconfig
+      config: this.config
     };
   }
 
@@ -96,4 +94,5 @@ export class DonutChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

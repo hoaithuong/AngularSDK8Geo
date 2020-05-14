@@ -29,6 +29,7 @@ interface PivotTableDrillExampleBucketProps {
   drillableItems?: any[];
   onFiredDrillEvent?: any;
 }
+
 interface PivotTableDrillExampleProps {
   projectId: any;
 }
@@ -38,10 +39,6 @@ interface PivotTableDrillExampleProps {
   template: '<div class="pivot-table-drill-example" style="height:500px" [id]="rootDomID"></div>',
 })
 export class PivotTableDrillExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() filters: any[];
-  @Input() sortBy: any[];
-  @Input() totals: any[];
-
   onDrill = drillEvent => {
     console.log(
       "onFiredDrillEvent",
@@ -50,29 +47,33 @@ export class PivotTableDrillExampleComponent implements OnInit, OnDestroy, OnCha
     );
     return true;
   };
+
   renderDrillValue() {
     let drillEvent;
     if (!drillEvent) {
       return null;
     }
   };
+
   drillableItems = [
     HeaderPredicateFactory.identifierMatch(menuCategoryAttributeDFIdentifier),
     HeaderPredicateFactory.identifierMatch(franchiseFeesIdentifier),
   ];
 
-  xMeasures = [
+  measures = [
     Model.measure(franchiseFeesIdentifier).format("#,##0"),
     Model.measure(franchiseFeesAdRoyaltyIdentifier).format("#,##0"),
     Model.measure(franchiseFeesInitialFranchiseFeeIdentifier).format("#,##0"),
     Model.measure(franchiseFeesIdentifierOngoingRoyalty).format("#,##0"),
   ]
-  xRows = [
+
+  rows = [
     Model.attribute(locationStateDisplayFormIdentifier),
     Model.attribute(locationNameDisplayFormIdentifier),
     Model.attribute(menuCategoryAttributeDFIdentifier).localIdentifier("menu"),
   ]
-  xColumns = [Model.attribute(quarterDateIdentifier), Model.attribute(monthDateIdentifier)]
+
+  columns = [Model.attribute(quarterDateIdentifier), Model.attribute(monthDateIdentifier)]
 
   public rootDomID: string;
 
@@ -86,12 +87,9 @@ export class PivotTableDrillExampleComponent implements OnInit, OnDestroy, OnCha
     { this.renderDrillValue() }
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      rows: this.xRows,
-      columns: this.xColumns,
-      totals: this.totals,
-      filters: this.filters,
-      sortBy: this.sortBy,
+      measures: this.measures,
+      rows: this.rows,
+      columns: this.columns,
       drillableItems: this.drillableItems,
       onFiredDrillEvent: this.onDrill
     };

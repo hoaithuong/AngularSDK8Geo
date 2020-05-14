@@ -17,13 +17,10 @@ import { CUSTOM_COLOR_PALETTE } from "../../../utils/colors";
 
 interface AreaChartHasColorPaletteBucketProps {
   measures: any[];
-  viewBy?: (any);
-  stackBy?: any;
-  filters?: any[];
-  sortBy?: any[];
+  viewBy?: any;
   config?: any;
-  locale?: any;
 }
+
 interface AreaChartHasColorPaletteProps {
   projectId: any;
 }
@@ -32,13 +29,9 @@ interface AreaChartHasColorPaletteProps {
   selector: 'app-area-chart-has-color-palette',
   template: '<div class="area-chart-has-color-palette" style="height:500px" [id]="rootDomID"></div>',
 })
-export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() stackBy: any;
-  @Input() locale: any;
-  @Input() filters: any[];
 
-  xMeasures = [
+export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(totalSalesIdentifier)
       .format("#,##0")
       .alias("$ Total Sales"),
@@ -47,10 +40,10 @@ export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnC
       .format("$#,##0.00"),
     Model.measure(grossProfitIdentifier)
       .alias("Gross Profit")
-      .format("$#,##0.00")]
-
-  xViewBy = Model.attribute(locationResortIdentifier)
-  xconfig = {
+      .format("$#,##0.00")
+    ]
+  viewBy = Model.attribute(locationResortIdentifier)
+  config = {
     stackMeasures: false,
     stackMeasuresToPercent: true,
     colorPalette: CUSTOM_COLOR_PALETTE,
@@ -74,26 +67,26 @@ export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnC
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): AreaChartHasColorPaletteProps | AreaChartHasColorPaletteBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.xViewBy,
-      stackBy: this.stackBy,
-      filters: this.filters,
-      sortBy: this.sortBy,
-      config: this.xconfig
+      measures: this.measures,
+      viewBy: this.viewBy,
+      config: this.config
     };
   }
 
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(AreaChart, this.getProps()), this.getRootDomNode());
     }
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
@@ -105,6 +98,7 @@ export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnC
   ngAfterViewInit() {
     this.render();
   }
+
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())

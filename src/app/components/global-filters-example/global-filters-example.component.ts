@@ -77,7 +77,7 @@ export class GlobalFiltersExampleComponent implements OnInit {
     Model.attribute(menuItemNameAttributeDFIdentifier).localIdentifier('MenuItem')
   ]
   viewByCategory = Model.attribute(menuCategoryAttributeDFIdentifier).localIdentifier('MenuCategory')
-  xconfig = {
+  config = {
     legend: {
       enabled: true,
       position: 'bottom', 
@@ -168,7 +168,7 @@ export class GlobalFiltersExampleComponent implements OnInit {
       measures: this.measures,
       viewBy: this.viewByCategory,
       filters: employeefilter,
-      config: this.xconfig
+      config: this.config
     };
   }
 

@@ -15,11 +15,10 @@ import {
 interface DualColumnChartBucketProps {
   measures: any[];
   viewBy?: any[];
-  stackBy?: any;
-  filters?: any[];
   sortBy?: any[];
   config?: any;
 }
+
 interface DualColumnChartProps {
   projectId: any;
 }
@@ -28,14 +27,12 @@ interface DualColumnChartProps {
   selector: 'app-dual-column-chart',
   template: '<div class="dual-column-chart" style="height:500px" [id]="rootDomID"></div>',
 })
-export class DualColumnChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() stackBy: any;
-  @Input() filters: any[];
 
+export class DualColumnChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   totalSalesLocalIdentifier = "totalSales"
   totalCostsLocalIdentifier = "totalCosts"
-  xMeasures1 = [
+
+  measures1 = [
     Model.measure(totalSalesIdentifier)
       .format("#,##0")
       .alias("$ Total Sales")
@@ -45,8 +42,10 @@ export class DualColumnChartComponent implements OnInit, OnDestroy, OnChanges, A
       .alias("$ Total Cost")
       .localIdentifier(this.totalCostsLocalIdentifier)
   ]
-  xViewBy = [Model.attribute(locationResortIdentifier)]
-  xconfig = {
+  
+  viewBy = [Model.attribute(locationResortIdentifier)]
+  
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -71,6 +70,7 @@ export class DualColumnChartComponent implements OnInit, OnDestroy, OnChanges, A
       measures: [this.totalCostsLocalIdentifier],
     },
   }
+
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -81,22 +81,22 @@ export class DualColumnChartComponent implements OnInit, OnDestroy, OnChanges, A
   protected getProps(): DualColumnChartProps | DualColumnChartBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures1,
-      viewBy: this.xViewBy,
-      stackBy: this.stackBy,
-      filters: this.filters,
-      config: this.xconfig
+      measures: this.measures1,
+      viewBy: this.viewBy,
+      config: this.config
     };
   }
 
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(ColumnChart, this.getProps()), this.getRootDomNode());
     }
   }
+
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }

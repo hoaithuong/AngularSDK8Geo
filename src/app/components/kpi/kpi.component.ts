@@ -13,10 +13,6 @@ import {
 interface KpiProps {
   measure: string;
   projectId: any;
-  format?: string;
-  filters?: any[];
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
@@ -25,11 +21,6 @@ interface KpiProps {
 })
 
 export class KpiComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() filters: any[];
-  @Input() format: string;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
-
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -42,10 +33,6 @@ export class KpiComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit
     return {
       projectId: projectId,
       measure: totalSalesIdentifier,
-      format: this.format,
-      filters: this.filters,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError
     };
   }
 
@@ -75,4 +62,5 @@ export class KpiComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

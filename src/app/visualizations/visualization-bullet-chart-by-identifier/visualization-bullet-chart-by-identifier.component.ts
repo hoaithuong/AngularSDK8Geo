@@ -4,13 +4,11 @@ import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { Visualization } from '@gooddata/react-components';
-import { projectId, bulletChartVisualizationByIdentifier } from "../../../utils/fixtures";
-import { CUSTOM_COLOR_PALETTE } from "../../../utils/colors";
+import { projectId, bulletVisualizationIdentifier } from "../../../utils/fixtures";
 
 interface VisualizationBulletChartByUriProps {
   projectId: any;
   identifier: any;
-  config?: any;
 }
 
 @Component({
@@ -31,10 +29,7 @@ export class VisualizationBulletChartByIdentifierComponent implements OnInit, On
     {
       return {
         projectId: projectId,
-        identifier : bulletChartVisualizationByIdentifier,
-        config: {
-          colorPalette: CUSTOM_COLOR_PALETTE,
-        }
+        identifier : bulletVisualizationIdentifier,
       };
     }
   }
@@ -67,4 +62,3 @@ export class VisualizationBulletChartByIdentifierComponent implements OnInit, On
   }
 
 }
-

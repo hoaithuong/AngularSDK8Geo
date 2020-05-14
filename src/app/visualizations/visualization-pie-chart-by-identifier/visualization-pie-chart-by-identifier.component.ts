@@ -3,15 +3,12 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-
 import { projectId, pieVisualizationIdentifier } from "../../../utils/fixtures";
 import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationPieChartByIdentifierProps {
   projectId: any;
   identifier: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
@@ -19,10 +16,6 @@ interface VisualizationPieChartByIdentifierProps {
   template: '<div class="visualization-pie-chart-by-identifier" style="height:400px" [id]="rootDomID"></div>',
 })
 export class VisualizationPieChartByIdentifierComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() uri: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
-
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -35,8 +28,6 @@ export class VisualizationPieChartByIdentifierComponent implements OnInit, OnDes
     return {
       projectId: projectId,
       identifier: pieVisualizationIdentifier,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
     };
   }
 
@@ -66,6 +57,5 @@ export class VisualizationPieChartByIdentifierComponent implements OnInit, OnDes
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }
-
-

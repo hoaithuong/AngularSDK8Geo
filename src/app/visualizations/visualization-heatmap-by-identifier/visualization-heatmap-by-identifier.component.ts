@@ -2,16 +2,13 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { projectId, heatmapVisualizationIdentifier } from "../../../utils/fixtures";
 import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationHeatmapByIdentifierProps {
   projectId: any;
   identifier: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
@@ -19,10 +16,6 @@ interface VisualizationHeatmapByIdentifierProps {
   template: '<div class="visualization-heatmap-by-identifier" style="height:400px" [id]="rootDomID"></div>',
 })
 export class VisualizationHeatmapByIdentifierComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() uri: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
-
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -35,8 +28,6 @@ export class VisualizationHeatmapByIdentifierComponent implements OnInit, OnDest
     return {
       projectId: projectId,
       identifier: heatmapVisualizationIdentifier,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
     };
   }
 
@@ -66,6 +57,5 @@ export class VisualizationHeatmapByIdentifierComponent implements OnInit, OnDest
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }
-
-

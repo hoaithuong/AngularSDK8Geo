@@ -12,15 +12,13 @@ import {
   dateDataSetUri
 } from '../../../utils/fixtures.js';
 
-
 interface ArithmeticMeasureChangeBucketProps {
   projectId: any;
   measures?: any[];
   attributes?: any[];
-  totals?: any[];
   filters?: any[];
-  sortBy?: any[];
 }
+
 interface ArithmeticMeasureChangeProps {
   projectId: any;
 }
@@ -30,26 +28,13 @@ interface ArithmeticMeasureChangeProps {
   template: '<div class="arithmetic-measures-change" style="height:400px" [id]="rootDomID"></div>',
 })
 export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() totals: any[];
-  @Input() sortBy: any[];
-
-  onLoadingChanged(...params) {
-    // eslint-disable-next-line no-console
-    return console.log("ArithmeticMeasureChangeComponent onLoadingChanged", ...params);
-  }
-
-  onError(...params) {
-    // eslint-disable-next-line no-console
-    return console.log("ArithmeticMeasureChangeComponent onError", ...params);
-  }
-
   totalSalesYearAgoBucketItem = Model.previousPeriodMeasure("totalSales", [{ dataSet: dateDataSetUri, periodsAgo: 1 },])
     .alias("$ Total Sales - year ago")
     .localIdentifier("totalSales_sp");
   totalSalesBucketItem = Model.measure(totalSalesIdentifier)
     .localIdentifier("totalSales")
     .alias("$ Total Sales");
-  xMeasures = [
+  measures = [
     this.totalSalesYearAgoBucketItem,
     this.totalSalesBucketItem,
     Model.arithmeticMeasure(
@@ -62,10 +47,8 @@ export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnCh
       .title("% Total Sales Change")
       .localIdentifier("totalSalesChange"),
   ]
-
-  xAttributes = [Model.attribute(monthDateIdentifier).localIdentifier("month")]
-  xFilters = [Model.absoluteDateFilter(dateDataSetUri, "2017-01-01", "2017-12-31")];
-
+  attributes = [Model.attribute(monthDateIdentifier).localIdentifier("month")]
+  filters = [Model.absoluteDateFilter(dateDataSetUri, "2017-01-01", "2017-12-31")];
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -77,11 +60,9 @@ export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnCh
   protected getProps(): ArithmeticMeasureChangeProps | ArithmeticMeasureChangeBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      attributes: this.xAttributes,
-      totals: this.totals,
-      filters: this.xFilters,
-      sortBy: this.sortBy,
+      measures: this.measures,
+      attributes: this.attributes,
+      filters: this.filters,
     };
   }
 
@@ -111,4 +92,5 @@ export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnCh
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

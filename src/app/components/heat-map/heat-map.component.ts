@@ -21,6 +21,7 @@ interface HeatMapBucketProps {
   config?: any;
   filters?: any[];
 }
+
 interface HeatMapProps {
   projectId: any;
 }
@@ -29,19 +30,17 @@ interface HeatMapProps {
   selector: 'app-heat-map',
   template: '<div class="heat-map" style="height:500px" [id]="rootDomID"></div>',
 })
+
 export class HeatMapComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() locale: any;
-  @Input() config: any;
-  @Input() sortBy: any[];
+  measures = Model.measure(totalSalesIdentifier).format("#,##0").alias("$ Total Sales")
 
-  xMeasures = Model.measure(totalSalesIdentifier).format("#,##0").alias("$ Total Sales")
+  columns = Model.attribute(locationResortIdentifier)
 
-  xColumns = Model.attribute(locationResortIdentifier)
-
-  xRows = Model.attribute(locationStateDisplayFormIdentifier)
+  rows = Model.attribute(locationStateDisplayFormIdentifier)
 
   filterLocationResort = [Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)]
-  xconfig = {
+
+  config = {
     dataLabels: {
       visible: 'auto'
     },
@@ -59,23 +58,19 @@ export class HeatMapComponent implements OnInit, OnDestroy, OnChanges, AfterView
   protected getProps(): HeatMapProps | HeatMapBucketProps {
     return {
       projectId: projectId,
-      measure: this.xMeasures,
-      columns: this.xColumns,
-      rows: this.xRows,
+      measure: this.measures,
+      columns: this.columns,
+      rows: this.rows,
       filters: this.filterLocationResort,
-      sortBy: this.sortBy,
-      config: this.xconfig,
-      locale: this.locale,
+      config: this.config,
     };
   }
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);
     invariant(node, `Node '${this.rootDomID} not found!`);
-
     return node;
   }
-  constructor() { }
 
   private isMounted(): boolean {
     return !!this.rootDomID;
@@ -98,6 +93,7 @@ export class HeatMapComponent implements OnInit, OnDestroy, OnChanges, AfterView
   ngAfterViewInit() {
     this.render();
   }
+  
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())

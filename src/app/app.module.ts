@@ -42,7 +42,7 @@ import { TableComponent } from './components/table/table.component';
 import { PivotTableTotalsComponent } from './components/pivot-table-total/pivot-table-total.component';
 import { VisualizationAreaChartComponent } from './visualizations/visualization-area-chart/visualization-area-chart.component';
 import { VisualizationAreaChartByUriComponent } from './visualizations/visualization-area-chart-by-uri/visualization-area-chart-by-uri.component';
-import { VisualizationPivotTableComponent } from './visualizations/visualization-pivot-table/visualization-pivot-table.component';
+import { VisualizationTableComponent } from './visualizations/visualization-table/visualization-table.component';
 import { VisualizationColumnChartByUriComponent } from './visualizations/visualization-column-chart-by-uri/visualization-column-chart-by-uri.component';
 import { VisualizationColumnChartComponent } from './visualizations/visualization-column-chart/visualization-column-chart.component';
 import { VisualizationBarChartComponent } from './visualizations/visualization-bar-chart/visualization-bar-chart.component';
@@ -189,7 +189,7 @@ import { MeasureValueFilterComponentShowInPercentComponent } from './components/
         DualColumnChartComponent,
         ScatterPlotComponent,
         BubbleChartComponent,
-        VisualizationPivotTableComponent,
+        VisualizationTableComponent,
         VisualizationAreaChartComponent,
         VisualizationAreaChartByUriComponent,
         VisualizationPivotTableByUriComponent,
@@ -379,7 +379,7 @@ import { MeasureValueFilterComponentShowInPercentComponent } from './components/
         PreviousPeriodColumnChartExampleComponent,
         PreviousPeriodHeadLineExampleComponent,
         VisualizationAreaChartComponent,
-        VisualizationPivotTableComponent,
+        VisualizationTableComponent,
         VisualizationBarChartComponent,
         VisualizationColumnChartComponent,
         VisualizationLineChartComponent,

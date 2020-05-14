@@ -2,14 +2,13 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { PivotTable, Model, MeasureValueFilter } from '@gooddata/react-components';
 import {
   projectId,
   locationNameDisplayFormIdentifier,
   franchisedSalesIdentifier,
 } from '../../../utils/fixtures';
-import classNames from "classnames";
 
 export interface PivotTableBucketProps {
   projectId: any;

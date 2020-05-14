@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { Treemap, Model } from '@gooddata/react-components';
 import {
   projectId,
@@ -21,8 +21,9 @@ interface TreemapBucketProps {
   sortBy?: any[];
   config?: any;
 }
+
 interface TreemapProps {
-  projectId: (any);
+  projectId: any;
 }
 
 @Component({
@@ -31,11 +32,7 @@ interface TreemapProps {
 })
 
 export class TreemapComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() viewBy: any;
-  @Input() config: any;
-  @Input() sortBy: any;
-
-  xMeasures = [
+  measures = [
     Model.measure(franchiseFeesAdRoyaltyIdentifier)
       .alias("Franchise Fee")
       .format("[>=100000][color=2190c0] #,##0.##$; [>=50000][color=A7BC0A] #,##0.##$; [>=20000][color=A7BC0A] #,##0.##$; [>=10000][color=EF3333] #,##0.##$; [>=0][color=c02190] #,##0.##$; [=Null] No data"),
@@ -49,10 +46,11 @@ export class TreemapComponent implements OnInit, OnDestroy, OnChanges, AfterView
       .alias("Gross Profit")
       .format("$#,##0.00")
   ]
-
-  xSegmentBy = Model.attribute(locationResortIdentifier)
-  filterLocationResort = [Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)]
-  xconfig = {
+  segmentBy = Model.attribute(locationResortIdentifier)
+  filterLocationResort = [
+    Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)
+  ]
+  config = {
     dataLabels: {
       visible: true
     },
@@ -73,15 +71,14 @@ export class TreemapComponent implements OnInit, OnDestroy, OnChanges, AfterView
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+
   protected getProps(): TreemapProps | TreemapBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      viewBy: this.viewBy,
-      segmentBy: this.xSegmentBy,
+      measures: this.measures,
+      segmentBy: this.segmentBy,
       filters: this.filterLocationResort,
-      config: this.xconfig,
-      sortBy: this.sortBy,
+      config: this.config,
     };
   }
 
@@ -112,4 +109,5 @@ export class TreemapComponent implements OnInit, OnDestroy, OnChanges, AfterView
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }

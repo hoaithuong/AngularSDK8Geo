@@ -16,9 +16,6 @@ interface ArithmeticMeasureDrillingBucketProps {
   projectId: any;
   measures?: any[];
   attributes?: any[];
-  totals?: any[];
-  filters?: any[];
-  sortBy?: any[];
   drillableItems: any[];
   onFiredDrillEvent: any;
 }
@@ -32,11 +29,6 @@ interface ArithmeticMeasureDrillingProps {
   template: '<div class="arithmetic-measure-drilling" style="height:200px" [id]="rootDomID"></div>',
 })
 export class ArithmeticMeasureDrillingComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() totals: any[];
-  @Input() filters: any[];
-  @Input() sortBy: any[];
-
-
   onLoadingChanged(...params) {
     return console.log("ArithmeticMeasureDrillingComponent onLoadingChanged", ...params);
   }
@@ -49,9 +41,9 @@ export class ArithmeticMeasureDrillingComponent implements OnInit, OnDestroy, On
     numberOfRestaurants: "numberOfRestaurants",
     totalSales: "totalSales",
     averageRestaurantSales: "averageRestaurantSales",
-  };
+  }
 
-  xMeasures = [
+  measures = [
     Model.measure(numberOfRestaurantsIdentifier)
       .localIdentifier(this.localIdentifiers.numberOfRestaurants)
       .format("#,##0"),
@@ -67,13 +59,13 @@ export class ArithmeticMeasureDrillingComponent implements OnInit, OnDestroy, On
       .title("$ Avg Restaurant Sales"),
   ]
 
-  xAttributes = [Model.attribute(locationStateDisplayFormIdentifier).localIdentifier("month")]
-  xDrillableItems = [
+  attributes = [Model.attribute(locationStateDisplayFormIdentifier).localIdentifier("month")]
+
+  drillableItems = [
     HeaderPredicateFactory.composedFromIdentifier(totalSalesIdentifier)
-
   ];
-  onFiredDrillEvent = (data) => { console.log(data.executionContext); console.log(data.drillContext); }
 
+  onFiredDrillEvent = (data) => { console.log(data.executionContext); console.log(data.drillContext); }
 
   public rootDomID: string;
 
@@ -86,12 +78,9 @@ export class ArithmeticMeasureDrillingComponent implements OnInit, OnDestroy, On
   protected getProps(): ArithmeticMeasureDrillingProps | ArithmeticMeasureDrillingBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      attributes: this.xAttributes,
-      totals: this.totals,
-      filters: this.filters,
-      sortBy: this.sortBy,
-      drillableItems: this.xDrillableItems,
+      measures: this.measures,
+      attributes: this.attributes,
+      drillableItems: this.drillableItems,
       onFiredDrillEvent: this.onFiredDrillEvent,
     };
   }
@@ -122,4 +111,5 @@ export class ArithmeticMeasureDrillingComponent implements OnInit, OnDestroy, On
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

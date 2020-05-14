@@ -4,10 +4,10 @@ import  VisualizationAreaChartComponentSRC  from '!!raw-loader!../../visualizati
 import  VisualizationAreaChartComponentHTML  from '!!raw-loader!../../visualizations/visualization-area-chart/visualization-area-chart.component.html';
 import  VisualizationAreaChartComponentCSS  from '!!raw-loader!../../visualizations/visualization-area-chart/visualization-area-chart.component.css';
 
-import { VisualizationPivotTableComponent } from '../../visualizations/visualization-pivot-table/visualization-pivot-table.component';
-import  VisualizationPivotTableComponentSRC  from '!!raw-loader!../../visualizations/visualization-pivot-table/visualization-pivot-table.component.ts';
-import  VisualizationPivotTableComponentHTML  from '!!raw-loader!../../visualizations/visualization-pivot-table/visualization-pivot-table.component.html';
-import  VisualizationPivotTableComponentCSS  from '!!raw-loader!../../visualizations/visualization-pivot-table/visualization-pivot-table.component.css';
+import { VisualizationTableComponent } from '../../visualizations/visualization-table/visualization-table.component';
+import  VisualizationTableComponentSRC  from '!!raw-loader!../../visualizations/visualization-table/visualization-table.component.ts';
+import  VisualizationTableComponentHTML  from '!!raw-loader!../../visualizations/visualization-table/visualization-table.component.html';
+import  VisualizationTableComponentCSS  from '!!raw-loader!../../visualizations/visualization-table/visualization-table.component.css';
 
 import { VisualizationBarChartComponent } from '../../visualizations/visualization-bar-chart/visualization-bar-chart.component';
 import  VisualizationBarChartComponentSRC  from '!!raw-loader!../../visualizations/visualization-bar-chart/visualization-bar-chart.component.ts';
@@ -67,10 +67,10 @@ export class VisualizationByIdentifierComponent implements OnInit {
     },
     {
       title: 'Pivot Table',
-      for: VisualizationPivotTableComponent,
-      ts: VisualizationPivotTableComponentSRC,
-      html: VisualizationPivotTableComponentHTML,
-      css: VisualizationPivotTableComponentCSS
+      for: VisualizationTableComponent,
+      ts: VisualizationTableComponentSRC,
+      html: VisualizationTableComponentHTML,
+      css: VisualizationTableComponentCSS
     },
     {
       title: 'Bar Chart',

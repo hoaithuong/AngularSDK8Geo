@@ -27,40 +27,36 @@ interface PivotTableTotalsBucketProps {
   filters?: any[];
   sortBy?: any[];
 }
+
 interface PivotTableTotalsProps {
   projectId: any;
   pageSize: number;
   config: (any),
   groupRows: boolean,
-  exportTitle: string
 }
 
 @Component({
   selector: 'app-pivot-table-totals',
   template: '<div class="pivot-table-totals" style="height:500px" [id]="rootDomID"></div>',
 })
-export class PivotTableTotalsComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() pageSize: number;
-  @Input() groupRows: boolean;
-  @Input() exportTitle: string;
-  @Input() filters: any[];
 
-  xMeasures = [
+export class PivotTableTotalsComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(franchiseFeesIdentifier).format("#,##0").localIdentifier("franchiseFeesIdentifier"),
     Model.measure(franchiseFeesAdRoyaltyIdentifier).format("#,##0").localIdentifier("franchiseFeesAdRoyaltyIdentifier"),
     Model.measure(franchiseFeesInitialFranchiseFeeIdentifier).format("#,##0").localIdentifier("franchiseFeesInitialFranchiseFeeIdentifier"),
     Model.measure(franchiseFeesIdentifierOngoingRoyalty).format("#,##0").localIdentifier("franchiseFeesIdentifierOngoingRoyalty"),
   ]
-  xRows = [
+  rows = [
     Model.attribute(locationStateDisplayFormIdentifier).localIdentifier("state"),
     Model.attribute(locationNameDisplayFormIdentifier).localIdentifier("name"),
     Model.attribute(menuCategoryAttributeDFIdentifier).localIdentifier("menu"),
   ]
-  xColumns = [Model.attribute(quarterDateIdentifier), Model.attribute(monthDateIdentifier)]
+  columns = [Model.attribute(quarterDateIdentifier), Model.attribute(monthDateIdentifier)]
 
-  xSortBy = [Model.attributeSortItem("state", "asc")];
+  sortBy = [Model.attributeSortItem("state", "asc")];
 
-  xTotals = [
+  totals = [
     {
       measureIdentifier: "franchiseFeesIdentifier",
       type: "sum",
@@ -118,7 +114,7 @@ export class PivotTableTotalsComponent implements OnInit, OnDestroy, OnChanges, 
     },
   ];
 
-  xConfig = {
+  config = {
     menu: {
       aggregations: true,
       aggregationsSubMenu: true,
@@ -136,16 +132,14 @@ export class PivotTableTotalsComponent implements OnInit, OnDestroy, OnChanges, 
   protected getProps(): PivotTableTotalsProps | PivotTableTotalsBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      rows: this.xRows,
-      columns: this.xColumns,
-      totals: this.xTotals,
-      filters: this.filters,
-      sortBy: this.xSortBy,
+      measures: this.measures,
+      rows: this.rows,
+      columns: this.columns,
+      totals: this.totals,
+      sortBy: this.sortBy,
       pageSize: 20,
       groupRows: true,
-      exportTitle: this.exportTitle,
-      config: this.xConfig
+      config: this.config
     };
   }
 

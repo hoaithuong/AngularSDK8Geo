@@ -14,13 +14,10 @@ import {
 interface HeadlineBucketProps {
   primaryMeasure: any;
   secondaryMeasure?: any;
-  filters?: any[];
-  sortBy?: any[];
-  config?: any;
-  locale?: any;
 }
+
 interface HeadlineProps {
-  projectId: (any);
+  projectId: any;
 }
 
 @Component({
@@ -29,9 +26,6 @@ interface HeadlineProps {
 })
 
 export class HeadlineComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() locale: any;
-  @Input() filters: any[];
-
   primaryMeasure = Model.measure(totalSalesIdentifier).format("#,##0").alias("$ Total Sales")
   secondaryMeasure = Model.measure(franchiseFeesIdentifier).alias("Franchise Fee").format("$#,##0.00")
   public rootDomID: string;
@@ -41,13 +35,12 @@ export class HeadlineComponent implements OnInit, OnDestroy, OnChanges, AfterVie
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
   }
+  
   protected getProps(): HeadlineProps | HeadlineBucketProps {
     return {
       projectId: projectId,
       primaryMeasure: this.primaryMeasure,
       secondaryMeasure: this.secondaryMeasure,
-      filters: this.filters,
-      locale: this.locale,
     };
   }
 
@@ -77,4 +70,5 @@ export class HeadlineComponent implements OnInit, OnDestroy, OnChanges, AfterVie
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }

@@ -43,11 +43,9 @@ export class BulletChartHasAmMeasureComponent implements OnInit, OnDestroy, OnCh
   comparativeMeasure = Model.arithmeticMeasure(
     [
       this.primaryMeasure.measure.localIdentifier,
-      this.targetMeasure.measure.localIdentifier,
-      
+      this.targetMeasure.measure.localIdentifier,      
     ],
-    'sum',
-  )
+    'sum')
     .title('% Franchise Fees Sum')
     .localIdentifier('franchiseFees_sum')
 

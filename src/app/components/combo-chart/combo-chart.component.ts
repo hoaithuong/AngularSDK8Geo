@@ -20,6 +20,7 @@ interface ComboChartBucketProps {
   config?: any;
   filters?: any[];
 }
+
 interface ComboChartProps {
   projectId: any;
 }
@@ -28,21 +29,21 @@ interface ComboChartProps {
   selector: 'app-combo-chart',
   template: '<div class="combo-chart" style="height:500px" [id]="rootDomID"></div>',
 })
-export class ComboChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() sortBy: any[];
-  @Input() filters: any;
 
-  xPrimaryMeasures = [
+export class ComboChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  primaryMeasures = [
     Model.measure(totalSalesIdentifier)
       .format("#,##0")
       .alias("$ Total Sales")]
-  xSecondaryMeasures = [
+      
+  secondaryMeasures = [
     Model.measure(franchiseFeesIdentifier)
       .format("#,##0")
       .alias("$ Franchise Fees")]
 
-  xViewBy = Model.attribute(locationStateDisplayFormIdentifier)
-  xconfig = {
+  viewBy = Model.attribute(locationStateDisplayFormIdentifier)
+
+  config = {
     primaryChartType: 'column',
     secondaryChartType: 'area',
 
@@ -58,6 +59,7 @@ export class ComboChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
       decimal: '.'
     },
   }
+
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -68,17 +70,17 @@ export class ComboChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
   protected getProps(): ComboChartProps | ComboChartBucketProps {
     return {
       projectId: projectId,
-      primaryMeasures: this.xPrimaryMeasures,
-      secondaryMeasures: this.xSecondaryMeasures,
-      viewBy: this.xViewBy,
-      filters: this.filters,
-      sortBy: this.sortBy,
-      config: this.xconfig,
+      primaryMeasures: this.primaryMeasures,
+      secondaryMeasures: this.secondaryMeasures,
+      viewBy: this.viewBy,
+      config: this.config,
     };
   }
+
   private isMounted(): boolean {
     return !!this.rootDomID;
   }
+
   protected render() {
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(ComboChart, this.getProps()), this.getRootDomNode());
@@ -88,6 +90,7 @@ export class ComboChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
   ngOnInit() {
     this.rootDomID = uuid.v1();
   }
+
   ngOnChanges() {
     this.render();
   }
@@ -95,8 +98,10 @@ export class ComboChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
   ngAfterViewInit() {
     this.render();
   }
+
   ngOnDestroy() {
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+
 }

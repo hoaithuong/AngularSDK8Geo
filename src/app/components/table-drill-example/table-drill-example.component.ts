@@ -26,6 +26,7 @@ interface TableDrillExampleBucketProps {
   filters?: any[];
   sortBy?: any[];
 }
+
 interface TableDrillExampleProps {
   projectId: any;
 }
@@ -34,11 +35,9 @@ interface TableDrillExampleProps {
   selector: 'app-table-drill-example',
   template: '<div class="table-drill-example" style="height:500px" [id]="rootDomID"></div>',
 })
-export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() filters: any[];
-  @Input() sortBy: any[];
 
-  xMeasures = [
+export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  measures = [
     Model.measure(franchiseFeesIdentifier)
       .format("#,##0")
       .localIdentifier("franchiseFeesIdentifier"),
@@ -53,12 +52,13 @@ export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges,
       .localIdentifier("franchiseFeesIdentifierOngoingRoyalty"),
   ]
 
-  xAttributes = [
+  attributes = [
     Model.attribute(locationStateDisplayFormIdentifier).localIdentifier("state"),
     Model.attribute(locationNameDisplayFormIdentifier).localIdentifier("name"),
     Model.attribute(menuCategoryAttributeDFIdentifier).localIdentifier("menu"),
   ]
-  xTotals = [
+
+  totals = [
     {
       measureIdentifier: "franchiseFeesIdentifier",
       type: "avg",
@@ -81,7 +81,8 @@ export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges,
     },
   ];
 
-  xSortBy = [Model.attributeSortItem("menu", "asc")]
+  sortBy = [Model.attributeSortItem("menu", "asc")]
+  
   onDrill = drillEvent => {
     console.log(
       "onFiredDrillEvent",
@@ -90,16 +91,19 @@ export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges,
     );
     return true;
   };
+
   renderDrillValue() {
     let drillEvent;
     if (!drillEvent) {
       return null;
     }
   };
+
   drillableItems = [
     HeaderPredicateFactory.identifierMatch(menuCategoryAttributeDFIdentifier),
     HeaderPredicateFactory.identifierMatch(franchiseFeesIdentifier),
   ];
+
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -111,11 +115,10 @@ export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges,
   protected getProps(): TableDrillExampleProps | TableDrillExampleBucketProps {
     return {
       projectId: projectId,
-      measures: this.xMeasures,
-      attributes: this.xAttributes,
-      totals: this.xTotals,
-      filters: this.filters,
-      sortBy: this.xSortBy,
+      measures: this.measures,
+      attributes: this.attributes,
+      totals: this.totals,
+      sortBy: this.sortBy,
       drillableItems: this.drillableItems,
       onFiredDrillEvent: this.onDrill
     };
@@ -129,7 +132,6 @@ export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges,
     if (this.isMounted()) {
       ReactDOM.render(React.createElement(Table, this.getProps()), this.getRootDomNode());
     }
-
   }
 
   ngOnInit() {
@@ -150,4 +152,3 @@ export class TableDrillExampleComponent implements OnInit, OnDestroy, OnChanges,
   }
 
 }
-

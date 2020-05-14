@@ -78,4 +78,5 @@ export class HeadlineExportExampleComponent implements OnInit {
   ngAfterViewInit() {
     this.render();
   }
+  
 }

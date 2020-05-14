@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { AttributeFilter, LineChart, Model, ErrorComponent } from '@gooddata/react-components';
 
 import {
@@ -51,16 +51,16 @@ export interface ErrorProps {
 })
 
 export class AttributeFilterExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  public rootDomID: string;
+  public lineRoomData: string;
   message: string;
   filters: any[];
+
   totalSales = [Model.measure(totalSalesIdentifier)
     .format('#,##0')
     .alias('$ Total Sales')];
 
   locationResort = Model.attribute(locationResortIdentifier);
-
-  public rootDomID: string;
-  public lineRoomData: string;
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);
@@ -103,11 +103,6 @@ export class AttributeFilterExampleComponent implements OnInit, OnDestroy, OnCha
     return !!this.rootDomID;
   }
 
-  onLoadingChanged(...params) {
-    // tslint:disable-next-line: no-console
-    console.info('AttributeFilterExample onLoadingChanged', ...params);
-  }
-
   onApply(filter) {
     self.message = null;
     if (filter.in) {
@@ -116,11 +111,6 @@ export class AttributeFilterExampleComponent implements OnInit, OnDestroy, OnCha
       self.filters = self.filterNegativeAttribute(filter);
     }
     self.renderLineChart();
-  }
-
-  onError(...params) {
-    // tslint:disable-next-line: no-console
-    console.info('AttributeFilterExample onLoadingChanged', ...params);
   }
 
   public filterPositiveAttribute(filter) {
@@ -177,8 +167,8 @@ export class AttributeFilterExampleComponent implements OnInit, OnDestroy, OnCha
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
-    this.lineRoomData = 'lineRoomData';
+    this.rootDomID = uuid.v4();
+    this.lineRoomData = uuid.v4();
   }
 
   ngOnChanges() {

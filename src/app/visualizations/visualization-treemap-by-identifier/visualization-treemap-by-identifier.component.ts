@@ -2,26 +2,21 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { projectId, treemapVisualizationIdentifier } from "../../../utils/fixtures";
 import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationTreemapByIdentifierProps {
   projectId: any;
   identifier: any;
-  onLoadingChanged?: (any);
-  onError?: (any);
 }
 
 @Component({
   selector: 'app-visualization-treemap-by-identifier',
   template: '<div class="visualization-treemap-by-identifier" style="height:400px" [id]="rootDomID"></div>',
 })
-export class VisualizationTreemapByIdentifierComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  @Input() uri: any;
-  @Input() onLoadingChanged?: (any);
-  @Input() onError?: (any);
 
+export class VisualizationTreemapByIdentifierComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -34,8 +29,6 @@ export class VisualizationTreemapByIdentifierComponent implements OnInit, OnDest
     return {
       projectId: projectId,
       identifier: treemapVisualizationIdentifier,
-      onLoadingChanged: this.onLoadingChanged,
-      onError: this.onError,
     };
   }
 
@@ -65,6 +58,5 @@ export class VisualizationTreemapByIdentifierComponent implements OnInit, OnDest
     // Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved
     // ReactDOM.unmountComponentAtNode(this.getRootDomNode())
   }
+  
 }
-
-
