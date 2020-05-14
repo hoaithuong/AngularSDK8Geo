@@ -69,7 +69,7 @@ export class ExampleWithExportComponent implements OnInit {
       anchor.id = DOWNLOADER_ID;
       document.body.appendChild(anchor);
     }
-    anchor.href = backendUrlForInfo + uri;
+    anchor.href = uri;
     anchor.download = uri;
     anchor.click();
   }
