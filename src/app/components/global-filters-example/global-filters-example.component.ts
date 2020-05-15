@@ -1,5 +1,6 @@
 import '@gooddata/react-components/styles/css/main.css';
 import * as React from 'react';
+import * as uuid from 'uuid';
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
 import {EMPLOYEES} from './mockEmployees';
@@ -107,25 +108,25 @@ export class GlobalFiltersExampleComponent implements OnInit {
 
   protected getKpiCheckAmountRootDomNode() {
     const node = document.getElementById(this.kpiCheckAmountRootDomID);
-    invariant(node, `Node kpiCheckAmountRootDomID not found!`);
+    invariant(node, `Node ${this.kpiCheckAmountRootDomID} not found!`);
     return node;
   }
 
   protected getKpiDailySalesRootDomNode() {
     const node = document.getElementById(this.kpiDailySalesRootDomID);
-    invariant(node, `Node kpiDailySalesRootDomID not found!`);
+    invariant(node, `Node ${this.kpiDailySalesRootDomID} not found!`);
     return node;
   }
 
   protected getBarDataNode() {
     const node = document.getElementById(this.barRoomDataID);
-    invariant(node, `Node barRoomDataID not found!`);
+    invariant(node, `Node ${this.barRoomDataID} not found!`);
     return node;
   }
 
   protected getPieDataNode() {
     const node = document.getElementById(this.pieRoomDataID);
-    invariant(node, `Node pieRoomDataID not found!`);
+    invariant(node, `Node ${this.pieRoomDataID} not found!`);
     return node;
   }
 
@@ -197,10 +198,10 @@ export class GlobalFiltersExampleComponent implements OnInit {
 
   ngOnInit() {
     self = this;
-    this.kpiCheckAmountRootDomID = 'kpiCheckAmountRootDomID';
-    this.kpiDailySalesRootDomID = 'kpiDailySalesRootDomID';
-    this.barRoomDataID = 'barRoomDataID';
-    this.pieRoomDataID = 'pieRoomDataID';
+    this.kpiCheckAmountRootDomID = uuid.v4();
+    this.kpiDailySalesRootDomID = uuid.v4();
+    this.barRoomDataID = uuid.v4();
+    this.pieRoomDataID = uuid.v4();
 
     // Filter default value
     self.employeefilter = {

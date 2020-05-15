@@ -177,10 +177,10 @@ export class MeasureValueFilterExamplesComponent implements OnInit, OnDestroy, O
   }
 
   ngOnInit() {
-    this.tableRoomData = uuid.v1();
-    this.all = 'all';
-    this.bewteen = 'bewteen';
-    this.greater = 'greater';
+    this.tableRoomData = uuid.v4();
+    this.all = uuid.v4();
+    this.bewteen = uuid.v4();
+    this.greater = uuid.v4();
   }
 
   ngOnChanges() {

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import '@gooddata/react-components/styles/css/main.css';
+import * as uuid from 'uuid';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
-import { LineChart, ColumnChart, ErrorComponent, Model } from "@gooddata/react-components";
 import sdk from "@gooddata/gooddata-js";
+import { LineChart, ColumnChart, ErrorComponent, Model } from "@gooddata/react-components";
 import { monthDateIdentifier, projectId, franchiseFeesTag } from "../../../utils/fixtures";
+import '@gooddata/react-components/styles/css/main.css';
 
 let self: any;
 
@@ -170,9 +171,9 @@ export class DynamicMeasureComponent implements OnInit {
 
   ngOnInit() {
     self = this;
-    this.root = 'root';
-    this.lineChartDM = 'lineChartDM';
-    this.lineChartDM = 'columnChartDM';
+    this.root = uuid.v4();
+    this.lineChartDM = uuid.v4();
+    this.lineChartDM = uuid.v4();
     this.componentWillMount();
   }
 

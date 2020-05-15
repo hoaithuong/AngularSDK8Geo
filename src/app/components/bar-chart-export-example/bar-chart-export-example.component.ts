@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as uuid from 'uuid';
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
 import { BarChart, Model } from '@gooddata/react-components';
@@ -70,7 +71,7 @@ export class BarChartExportExampleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rootDomID = 'rootDomID';
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

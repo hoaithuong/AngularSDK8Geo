@@ -76,7 +76,7 @@ export class ScatterPlotComponent implements OnInit, OnDestroy, OnChanges, After
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

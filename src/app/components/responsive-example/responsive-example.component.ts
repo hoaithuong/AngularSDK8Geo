@@ -144,9 +144,9 @@ export class ResponsiveExampleComponent implements OnInit {
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
-    this.btn5x4RootID = 'btn5x4RootID';
-    this.btn8x2RootID = 'btn8x2RootID';
+    this.rootDomID = uuid.v4();
+    this.btn5x4RootID = uuid.v4();
+    this.btn8x2RootID = uuid.v4();
   }
 
   ngOnChanges() {

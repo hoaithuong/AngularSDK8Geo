@@ -87,7 +87,7 @@ export class ArithmeticMeasureSumComponent implements OnInit, OnDestroy, OnChang
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

@@ -43,7 +43,7 @@ export class VisualizationDonutChartByIdentifierComponent implements OnInit, OnD
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

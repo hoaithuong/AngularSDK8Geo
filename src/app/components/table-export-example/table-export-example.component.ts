@@ -1,6 +1,7 @@
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
 import * as React from 'react';
+import * as uuid from 'uuid';
 import { Component, OnInit } from '@angular/core';
 import { Table, Model } from '@gooddata/react-components';
 import { ExampleWithExportComponent } from '../utils/example-with-export/example-with-export.component';
@@ -108,7 +109,7 @@ export class TableExportExampleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rootDomID = 'rootDomID';
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

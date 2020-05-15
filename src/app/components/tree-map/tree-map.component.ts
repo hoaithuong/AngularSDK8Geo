@@ -94,7 +94,7 @@ export class TreemapComponent implements OnInit, OnDestroy, OnChanges, AfterView
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

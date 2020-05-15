@@ -79,7 +79,7 @@ export class DonutChartComponent implements OnInit, OnDestroy, OnChanges, AfterV
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

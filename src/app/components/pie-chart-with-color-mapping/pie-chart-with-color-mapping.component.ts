@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PieChart } from '@gooddata/react-components';
 import "@gooddata/react-components/styles/css/main.css";
 import {
@@ -126,7 +126,7 @@ export class PieChartWithColorMappingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

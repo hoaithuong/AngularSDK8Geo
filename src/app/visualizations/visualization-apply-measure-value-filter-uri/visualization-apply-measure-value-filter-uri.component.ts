@@ -43,7 +43,7 @@ export class VisualizationApplyMeasureValueFilterUriComponent implements OnInit,
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

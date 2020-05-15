@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { PieChart, Model } from '@gooddata/react-components';
 import {
   projectId,
@@ -17,6 +17,7 @@ interface PieChartBucketProps {
   sortBy?: any[];
   config?: any;
 }
+
 interface PieChartProps {
   projectId: any;
 }
@@ -73,7 +74,7 @@ export class PieChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

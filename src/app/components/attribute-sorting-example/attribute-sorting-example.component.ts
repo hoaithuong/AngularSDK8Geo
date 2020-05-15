@@ -73,7 +73,7 @@ export class AttributeSortingExampleComponent implements OnInit, OnDestroy, OnCh
   }
 
   ngOnInit() {
-    this.attributeSortingDomID = uuid.v1();
+    this.attributeSortingDomID = uuid.v4();
   }
 
   ngOnChanges() {

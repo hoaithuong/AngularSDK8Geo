@@ -113,7 +113,6 @@ toggleDropdown = () => {
 
 //---------------Get Component-------------
   protected getMeasureValueProps(): MeasureValueFilterDropdownProps {
-    //const { filters } = this.state;
     return {
       anchorEl: this.getButtonNode().getElementsByTagName('button')[0],
       projectId: projectId,

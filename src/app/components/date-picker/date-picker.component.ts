@@ -174,7 +174,7 @@ export class DatePickerComponent implements OnInit, OnDestroy, OnChanges, AfterV
 
   ngOnInit() {
     self = this;
-    this.rootDomID = 'rootDomId'; 
+    this.rootDomID = uuid.v4(); 
     this.rootFromDomID = uuid.v4();
     this.rootToDomID = uuid.v4()
   }

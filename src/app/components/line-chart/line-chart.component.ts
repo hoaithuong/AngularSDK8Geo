@@ -88,7 +88,7 @@ export class LineChartComponent implements OnInit, OnDestroy, OnChanges, AfterVi
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

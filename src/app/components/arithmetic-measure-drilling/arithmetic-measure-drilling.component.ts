@@ -96,7 +96,7 @@ export class ArithmeticMeasureDrillingComponent implements OnInit, OnDestroy, On
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

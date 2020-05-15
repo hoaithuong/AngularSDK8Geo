@@ -61,7 +61,7 @@ export class VisualizationByUriComponent implements OnInit {
       css: VisualizationAreaChartByUriComponentCSS
     },
     {
-      title: 'Stack Column Chart',
+      title: 'Column Chart',
       for: VisualizationColumnChartByUriComponent,
       ts: VisualizationColumnChartByUriComponentSRC,
       html: VisualizationColumnChartByUriComponentHTML,

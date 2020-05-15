@@ -81,7 +81,7 @@ export class NewAttributeFilterComponent implements OnInit, OnDestroy, OnChanges
 
   protected getLineDataNode() {
     const node = document.getElementById(this.pivotTableRoomDataID);
-    invariant(node, `Node pivotTableRoomDataID not found!`);
+    invariant(node, `Node ${this.pivotTableRoomDataID} not found!`);
     return node;
   }
 
@@ -157,8 +157,8 @@ export class NewAttributeFilterComponent implements OnInit, OnDestroy, OnChanges
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
-    this.pivotTableRoomDataID = 'pivotTableRoomDataID';
+    this.rootDomID = uuid.v4();
+    this.pivotTableRoomDataID = uuid.v4();
   }
 
   ngOnChanges() {
