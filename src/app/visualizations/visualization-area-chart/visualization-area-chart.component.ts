@@ -44,7 +44,7 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

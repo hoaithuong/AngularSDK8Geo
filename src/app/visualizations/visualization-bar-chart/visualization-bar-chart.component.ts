@@ -43,7 +43,7 @@ export class VisualizationBarChartComponent implements OnInit, OnDestroy, OnChan
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

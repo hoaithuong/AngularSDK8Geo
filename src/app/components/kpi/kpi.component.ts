@@ -47,7 +47,7 @@ export class KpiComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

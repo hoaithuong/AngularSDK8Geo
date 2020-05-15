@@ -42,7 +42,7 @@ export class VisualizationPieChartByIdentifierComponent implements OnInit, OnDes
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as uuid from 'uuid';
 import * as ReactDOM from 'react-dom';
 import * as moment from 'moment';
 import * as invariant from 'invariant';
@@ -251,9 +252,9 @@ export class DrillWithExternalDataComponent implements OnInit, OnDestroy, OnChan
 
   ngOnInit() {
     self = this;
-    this.tableEmployeesDomID = "tableEmployeesDomData";
-    this.tableStatesDomID = "tableStatesDomData";
-    this.columnSalesDomID = "columnSalesDomData";
+    this.tableEmployeesDomID = uuid.v4();
+    this.tableStatesDomID = uuid.v4();
+    this.columnSalesDomID = uuid.v4();
   }
 
   ngOnChanges() {

@@ -69,7 +69,7 @@ export class DualAxisBarChartComponent implements OnInit, OnDestroy, OnChanges, 
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

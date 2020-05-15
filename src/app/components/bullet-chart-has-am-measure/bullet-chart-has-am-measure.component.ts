@@ -117,7 +117,7 @@ export class BulletChartHasAmMeasureComponent implements OnInit, OnDestroy, OnCh
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

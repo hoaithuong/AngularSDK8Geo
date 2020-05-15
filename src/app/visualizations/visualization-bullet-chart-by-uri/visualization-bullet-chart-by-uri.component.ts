@@ -48,7 +48,7 @@ export class VisualizationBulletChartByUriComponent implements OnInit, OnDestroy
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

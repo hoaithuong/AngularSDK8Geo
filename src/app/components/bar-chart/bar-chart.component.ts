@@ -88,7 +88,7 @@ export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

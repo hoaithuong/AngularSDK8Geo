@@ -279,7 +279,7 @@ export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, 
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

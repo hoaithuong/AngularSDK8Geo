@@ -42,7 +42,7 @@ export class VisualizationHeatmapByIdentifierComponent implements OnInit, OnDest
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

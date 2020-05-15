@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as uuid from 'uuid';
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
 import { Component, OnInit } from '@angular/core';
@@ -93,7 +94,7 @@ export class PivotTableExportExampleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rootDomID = 'rootDomID';
+    this.rootDomID = uuid.v4();
   }
 
   ngOnChanges() {

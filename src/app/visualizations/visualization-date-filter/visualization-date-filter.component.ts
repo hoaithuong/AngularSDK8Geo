@@ -299,7 +299,7 @@ export class DateFilterVisComponent implements OnInit, OnDestroy, OnChanges, Aft
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuid.v4();
     this.visRoomData = 'visRoomData';
   }
 

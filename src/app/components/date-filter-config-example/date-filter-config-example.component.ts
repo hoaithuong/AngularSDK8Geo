@@ -43,7 +43,7 @@ const availableGranularities = ['GDC.time.date', 'GDC.time.month', 'GDC.time.wee
 @Component({
   selector: 'app-date-filter-config-example',
   template: `<div style="width:200px; height:50px" [id]="rootDomID"></div>
-             <div style="height:500px; margin-top: 5px;" [id]="pivotRoomData"></div>`,
+             <div style="height:500px; margin-top: 5px;" [id]="PivotDomID"></div>`,
 })
 
 export class DateFilterConfigExampleComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
@@ -244,18 +244,18 @@ export class DateFilterConfigExampleComponent implements OnInit, OnDestroy, OnCh
   selectedFilterOption = this.defaultDateFilterOptions.allTime;
   excludeCurrentPeriod = false;
   public rootDomID: string;
-  public pivotRoomData: string;
+  public PivotDomID: string;
   filters: any[];
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);
-    invariant(node, `Node '${this.rootDomID} not found!`);
+    invariant(node, `Node ${this.rootDomID} not found!`);
     return node;
   }
 
   protected getLineDataNode() {
-    const node = document.getElementById(this.pivotRoomData);
-    invariant(node, `Node pivotRoomData not found!`);
+    const node = document.getElementById(this.PivotDomID);
+    invariant(node, `Node ${this.PivotDomID} not found!`);
     return node;
   }
 
@@ -317,8 +317,8 @@ export class DateFilterConfigExampleComponent implements OnInit, OnDestroy, OnCh
 
   ngOnInit() {
     self = this;
-    this.rootDomID = uuid.v1();
-    this.pivotRoomData = 'pivotRoomData';
+    this.rootDomID = uuid.v4();
+    this.PivotDomID = uuid.v4();
   }
 
   ngOnChanges() {

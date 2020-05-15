@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as invariant from 'invariant';
 import Select from 'react-select';
-
+import * as uuid from 'uuid';
 import { 
   Component, 
   OnInit } from '@angular/core';
@@ -79,19 +79,19 @@ export class ParentFilterExampleComponent implements OnInit {
 
   protected getChartRootDomNode() {
     const node = document.getElementById(this.ChartrootDomID);
-    invariant(node, `Node ChartrootDomID not found!`);
+    invariant(node, `Node ${this.ChartrootDomID} not found!`);
     return node;
   }
 
   protected getStateRootDomNode() {
     const node = document.getElementById(this.StaterootDomID);
-    invariant(node, `Node StaterootDomID not found!`);
+    invariant(node, `Node ${this.StaterootDomID} not found!`);
     return node;
   }
 
   protected getCityRootDomNode() {
     const node = document.getElementById(this.CityrootDomID);
-    invariant(node, `Node CityrootDomID not found!`);
+    invariant(node, `Node ${this.CityrootDomID} not found!`);
     return node;
   }
 
@@ -237,9 +237,9 @@ export class ParentFilterExampleComponent implements OnInit {
 
   ngOnInit() {
     self = this;
-    this.ChartrootDomID = 'ChartrootDomID';
-    this.StaterootDomID = 'StaterootDomID';
-    this.CityrootDomID = 'CityrootDomID';
+    this.ChartrootDomID = uuid.v4();
+    this.StaterootDomID = uuid.v4();
+    this.CityrootDomID = uuid.v4();
   }
 
   ngOnChanges() {
