@@ -19,6 +19,11 @@ import  MeasureValueFilterComponentShowInPercentComponentSRC  from '!!raw-loader
 import  MeasureValueFilterComponentShowInPercentComponentHTML  from '!!raw-loader!../../components/measure-value-filter-component-show-in-percent/measure-value-filter-component-show-in-percent.component.html';
 import  MeasureValueFilterComponentShowInPercentComponentCSS  from '!!raw-loader!../../components/measure-value-filter-component-show-in-percent/measure-value-filter-component-show-in-percent.component.css';
 
+import { VisualizationHasMvfComponent } from '../../visualizations/visualization-has-mvf/visualization-has-mvf.component'
+import  VisualizationHasMfvComponentSRC  from '!!raw-loader!../../visualizations/visualization-has-mvf/visualization-has-mvf.component.ts';
+import  VisualizationHasMfvComponentHTML  from '!!raw-loader!../../visualizations/visualization-has-mvf/visualization-has-mvf.component.html';
+import  VisualizationHasMfvComponentCSS  from '!!raw-loader!../../visualizations/visualization-has-mvf/visualization-has-mvf.component.css';
+
 @Component({
   selector: 'app-measure-value-filter-component',
   templateUrl: './measure-value-filter-component.component.html',
@@ -47,6 +52,13 @@ export class MeasureValueFilterComponentComponent implements OnInit {
       ts: MeasureValueFilterComponentShowInPercentComponentSRC,
       html:MeasureValueFilterComponentShowInPercentComponentHTML,
       css: MeasureValueFilterComponentShowInPercentComponentCSS
+    },
+    {
+      content: 'This example shows the visualization for setting up a measure value filter.',
+      for: VisualizationHasMvfComponent,
+      ts: VisualizationHasMfvComponentSRC,
+      html:VisualizationHasMfvComponentHTML,
+      css: VisualizationHasMfvComponentCSS
     }
   ];
 
