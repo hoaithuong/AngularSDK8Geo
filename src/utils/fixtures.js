@@ -105,5 +105,6 @@ export const totalCostsLocalIdentifier = "aaQHncjzfrtR";
 export const totalSalesLocalIdentifier = "c11c27a0b0314a83bfe5b64ab9de7b89";
 export const mvfVisualizationIdentifier = "aac9xsxYf2oq";
 export const mvfVisualizationUri = `/gdc/md/${projectId}/obj/12139`;
-
+export const visualizationhasMfvIdentifier = "acYLtme9b5ui";
+export const totalSalesMFVLocalIdentifier = "a73f7da5b508426a91d55c3ae5ef9d97";
 
