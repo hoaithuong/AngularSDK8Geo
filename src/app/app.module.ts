@@ -148,7 +148,21 @@ import { AttributeElementComponent } from './components/attribute-element/attrib
 import { MeasureValueFilterComponentExampleComponent } from './components/measure-value-filter-component-example/measure-value-filter-component-example.component';
 import { MeasureValueFilterComponentPercentageExampleComponent } from './components/measure-value-filter-component-percentage-example/measure-value-filter-component-percentage-example.component';
 import { MeasureValueFilterComponentShowInPercentComponent } from './components/measure-value-filter-component-show-in-percent/measure-value-filter-component-show-in-percent.component';
-import { VisualizationHasMvfComponent } from './visualizations/visualization-has-mvf/visualization-has-mvf.component'
+import { VisualizationHasMvfComponent } from './visualizations/visualization-has-mvf/visualization-has-mvf.component';
+import { CombineAttributeWithMeasureFilterComponent } from './components/combine-attribute-with-measure-filter/combine-attribute-with-measure-filter.component';
+import { CombineDateWithMeasureFilterComponent } from './components/combine-date-with-measure-filter/combine-date-with-measure-filter.component';
+import { CombineDateAndAttributeWithMeasureFilterComponent } from './components/combine-date-and-attribute-with-measure-filter/combine-date-and-attribute-with-measure-filter.component';;
+import { CombineFilterExamplesComponent } from './routes/combine-filter-examples/combine-filter-examples.component';
+import { CombineFilterComponentExamplesComponent } from './routes/combine-filter-component-examples/combine-filter-component-examples.component';
+import { CombineFilterComponent } from './routes/combine-filter/combine-filter.component';;
+import { CombineAttributeWithMeasureFilterComponentComponent } from './components/combine-attribute-with-measure-filter-component/combine-attribute-with-measure-filter-component.component';
+import { CombineDateWithMeasureFilterComponentComponent } from './components/combine-date-with-measure-filter-component/combine-date-with-measure-filter-component.component';
+import { CombineDateAndAttributeWithMeasureFilterComponentComponent } from './components/combine-date-and-attribute-with-measure-filter-component/combine-date-and-attribute-with-measure-filter-component.component';
+import { CombineFilterInsightExamplesComponent } from './routes/combine-filter-insight-examples/combine-filter-insight-examples.component';
+import { CombineFilterInsightComponentExamplesComponent } from './routes/combine-filter-insight-component-examples/combine-filter-insight-component-examples.component';
+import { CombineAttributeWithMeasureFilterInsightComponent } from './components/combine-attribute-with-measure-filter-insight/combine-attribute-with-measure-filter-insight.component';
+import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './components/combine-attribute-with-measure-filter-insight-component/combine-attribute-with-measure-filter-insight-component.component'
+
 
 @NgModule({
     imports: [
@@ -299,8 +313,20 @@ import { VisualizationHasMvfComponent } from './visualizations/visualization-has
         MeasureValueFilterComponentExampleComponent,
         MeasureValueFilterComponentPercentageExampleComponent,
         MeasureValueFilterComponentShowInPercentComponent,
-        VisualizationHasMvfComponent
-
+        VisualizationHasMvfComponent,
+        CombineAttributeWithMeasureFilterComponent,
+        CombineDateWithMeasureFilterComponent,
+        CombineDateAndAttributeWithMeasureFilterComponent,
+        CombineFilterExamplesComponent,
+        CombineFilterComponentExamplesComponent,
+        CombineFilterComponent,
+        CombineAttributeWithMeasureFilterComponentComponent,
+        CombineDateWithMeasureFilterComponentComponent ,
+        CombineDateAndAttributeWithMeasureFilterComponentComponent,
+        CombineFilterInsightExamplesComponent,
+        CombineFilterInsightComponentExamplesComponent,
+        CombineAttributeWithMeasureFilterInsightComponent,
+        CombineAttributeWithMeasureFilterInsightComponentComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -404,7 +430,15 @@ import { VisualizationHasMvfComponent } from './visualizations/visualization-has
         MeasureValueFilterComponentExampleComponent,
         MeasureValueFilterComponentPercentageExampleComponent,
         MeasureValueFilterComponentShowInPercentComponent,
-        VisualizationHasMvfComponent
+        VisualizationHasMvfComponent,
+        CombineAttributeWithMeasureFilterComponent,
+        CombineDateAndAttributeWithMeasureFilterComponent,
+        CombineDateWithMeasureFilterComponent,
+        CombineAttributeWithMeasureFilterComponentComponent,
+        CombineDateWithMeasureFilterComponentComponent ,
+        CombineDateAndAttributeWithMeasureFilterComponentComponent,
+        CombineAttributeWithMeasureFilterInsightComponent,
+        CombineAttributeWithMeasureFilterInsightComponentComponent
     ]
 })
 

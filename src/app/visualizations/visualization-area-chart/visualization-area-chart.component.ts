@@ -3,13 +3,17 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit ,OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { InsightView, IInsightViewProps } from "@gooddata/sdk-ui-ext";
+import { Ldm, LdmExt } from "../../../ldm";
+import { workspace } from "../../../utils/fixtures";
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
-import { projectId, areaVisualizationIdentifier } from "../../../utils/fixtures";
-import { Visualization } from '@gooddata/react-components';
 
 interface VisualizationAreaChartProps {
-  projectId: any;
-  identifier:any;  
+  backend: any;
+  workspace: any;
+  insight: any;  
 }
 
 @Component({
@@ -28,8 +32,9 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
 
   protected getProps(): VisualizationAreaChartProps {
     return {
-      projectId:projectId,
-      identifier: areaVisualizationIdentifier,
+      workspace: workspace,
+      backend: backend,
+      insight: Ldm.Insights.AreachartThg,
     };
   }
 
@@ -39,7 +44,7 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
 
   protected render() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(Visualization, this.getProps()), this.getRootDomNode());
+      ReactDOM.render(React.createElement(InsightView, this.getProps()), this.getRootDomNode());
     }
   }
 

@@ -3,7 +3,11 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-import { DateFilter } from '@gooddata/react-components';
+
+import { DateFilter, ExtendedDateFilters } from "@gooddata/sdk-ui-filters";
+import { workspace } from "../../../utils/fixtures";
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
 let self: any;
 
@@ -14,9 +18,13 @@ interface DateFilterBucketProps {
   excludeCurrentPeriod: boolean;
   selectedFilterOption: any;
   onApply: any;
-  onCancel: any;
-  onOpen: any;
-  onClose: any;
+  backend: any;
+  workspace: any;
+}
+
+interface IDateFilterComponentExampleState {
+  selectedFilterOption: ExtendedDateFilters.DateFilterOption;
+  excludeCurrentPeriod: boolean;
 }
 
 const dateFrom = new Date();
@@ -30,7 +38,7 @@ const availableGranularities = ['GDC.time.date', 'GDC.time.week_us', 'GDC.time.m
 
 export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
 
-  defaultDateFilterOptions = {
+  defaultDateFilterOptions: ExtendedDateFilters.IDateFilterOptionsByType = {
     allTime: {
       localIdentifier: 'ALL_TIME',
       type: 'allTime',
@@ -71,7 +79,7 @@ export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, 
       to: undefined,
       name: '',
       visible: true,
-      availableGranularities,
+      availableGranularities: [],
     },
     relativePreset: {
       'GDC.time.date': [
@@ -213,8 +221,26 @@ export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, 
     },
   };
 
-  selectedFilterOption = this.defaultDateFilterOptions.allTime;
-  excludeCurrentPeriod = false;
+  selectedFilterOption= this.defaultDateFilterOptions.allTime!;
+  excludeCurrentPeriod= false;
+
+  onApply = (
+      selectedFilterOption: ExtendedDateFilters.IAllTimeDateFilter,
+      excludeCurrentPeriod: boolean,
+  ) => {
+    this.selectedFilterOption = selectedFilterOption;
+    this.excludeCurrentPeriod = excludeCurrentPeriod;
+    
+    console.log(
+      "DateFilterExample onApply",
+      "selectedFilterOption:",
+      selectedFilterOption,
+      "excludeCurrentPeriod:",
+      excludeCurrentPeriod,
+  );
+  self.render();
+  }
+  
   public rootDomID: string;
   public lineRoomData: string;
 
@@ -222,34 +248,6 @@ export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, 
     const node = document.getElementById(this.rootDomID);
     invariant(node, `Node '${this.rootDomID} not found!`);
     return node;
-  }
-
-  onOpen = () => {
-    // tslint-disable-next-line no-console
-    console.log('DateFilterExample onOpen');
-  }
-
-  onClose = () => {
-    // tslint-disable-next-line no-console
-    console.log('DateFilterExample onClose');
-  }
-
-  onApply = (selectedFilterOption, excludeCurrentPeriod) => {
-    this.selectedFilterOption = selectedFilterOption;
-    this.excludeCurrentPeriod = excludeCurrentPeriod;
-    console.log(
-      'DateFilterExample onApply',
-      'selectedFilterOption:',
-      selectedFilterOption,
-      'excludeCurrentPeriod:',
-      excludeCurrentPeriod,
-    );
-    self.render();
-  }
-
-  onCancel = () => {
-    // tslint-disable-next-line no-console
-    console.log('DateFilterExample onCancel');
   }
 
   protected getDateFilterProps(): DateFilterBucketProps {
@@ -260,9 +258,8 @@ export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, 
       availableGranularities: availableGranularities,
       dateFilterMode: 'active',
       onApply: this.onApply,
-      onCancel: this.onCancel,
-      onOpen: this.onOpen,
-      onClose: this.onClose,
+      workspace: workspace,
+      backend: backend,
     };
   }
 
