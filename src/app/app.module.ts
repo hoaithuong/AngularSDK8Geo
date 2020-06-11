@@ -161,7 +161,17 @@ import { CombineDateAndAttributeWithMeasureFilterComponentComponent } from './co
 import { CombineFilterInsightExamplesComponent } from './routes/combine-filter-insight-examples/combine-filter-insight-examples.component';
 import { CombineFilterInsightComponentExamplesComponent } from './routes/combine-filter-insight-component-examples/combine-filter-insight-component-examples.component';
 import { CombineAttributeWithMeasureFilterInsightComponent } from './components/combine-attribute-with-measure-filter-insight/combine-attribute-with-measure-filter-insight.component';
-import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './components/combine-attribute-with-measure-filter-insight-component/combine-attribute-with-measure-filter-insight-component.component'
+import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './components/combine-attribute-with-measure-filter-insight-component/combine-attribute-with-measure-filter-insight-component.component';
+import { GeoPushpinChartClusteringExampleComponent } from './components/geo-pushpin-chart-clustering-example/geo-pushpin-chart-clustering-example.component';
+import { GeoChartExampleComponent } from './routes/geo-chart-example/geo-chart-example.component';
+import { VisualizationGeoChartComponent } from './visualizations/visualization-geo-chart/visualization-geo-chart.component';
+import { GeoPushpinChartWithColorLegendExampleComponent } from './components/geo-pushpin-chart-with-color-legend-example/geo-pushpin-chart-with-color-legend-example.component';
+import { GeoPushpinChartWithCategoryLegendExampleComponent } from './components/geo-pushpin-chart-with-category-legend-example/geo-pushpin-chart-with-category-legend-example.component';
+import { GeoPushpinChartConfigurationExampleComponent } from './components/geo-pushpin-chart-configuration-example/geo-pushpin-chart-configuration-example.component';
+import { GeoPushpinChartConfigurationLegendExampleComponent } from './components/geo-pushpin-chart-configuration-legend-example/geo-pushpin-chart-configuration-legend-example.component';
+import { GeoPushpinChartConfigurationViewportExampleComponent } from './components/geo-pushpin-chart-configuration-viewport-example/geo-pushpin-chart-configuration-viewport-example.component';
+import { GeoPushpinChartConfigurationColorMappingExampleComponent } from './components/geo-pushpin-chart-configuration-color-mapping-example/geo-pushpin-chart-configuration-color-mapping-example.component';
+import { GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent } from './components/geo-pushpin-chart-configuration-points-group-nearby-example/geo-pushpin-chart-configuration-points-group-nearby-example.component'
 
 
 @NgModule({
@@ -326,7 +336,17 @@ import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './co
         CombineFilterInsightExamplesComponent,
         CombineFilterInsightComponentExamplesComponent,
         CombineAttributeWithMeasureFilterInsightComponent,
-        CombineAttributeWithMeasureFilterInsightComponentComponent
+        CombineAttributeWithMeasureFilterInsightComponentComponent,
+        GeoPushpinChartClusteringExampleComponent,
+        GeoChartExampleComponent,
+        VisualizationGeoChartComponent,
+        GeoPushpinChartWithColorLegendExampleComponent,
+        GeoPushpinChartWithCategoryLegendExampleComponent,
+        GeoPushpinChartConfigurationExampleComponent,
+        GeoPushpinChartConfigurationLegendExampleComponent,
+        GeoPushpinChartConfigurationViewportExampleComponent,
+        GeoPushpinChartConfigurationColorMappingExampleComponent,
+        GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -438,7 +458,16 @@ import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './co
         CombineDateWithMeasureFilterComponentComponent ,
         CombineDateAndAttributeWithMeasureFilterComponentComponent,
         CombineAttributeWithMeasureFilterInsightComponent,
-        CombineAttributeWithMeasureFilterInsightComponentComponent
+        CombineAttributeWithMeasureFilterInsightComponentComponent,
+        GeoPushpinChartClusteringExampleComponent,
+        VisualizationGeoChartComponent,
+        GeoPushpinChartWithColorLegendExampleComponent,
+        GeoPushpinChartWithCategoryLegendExampleComponent,
+        GeoPushpinChartConfigurationExampleComponent,
+        GeoPushpinChartConfigurationLegendExampleComponent,
+        GeoPushpinChartConfigurationViewportExampleComponent,
+        GeoPushpinChartConfigurationColorMappingExampleComponent,
+        GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent
     ]
 })
 

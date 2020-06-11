@@ -49,6 +49,11 @@ import  VisualizationBulletChartByIdentifierComponentSRC  from '!!raw-loader!../
 import  VisualizationBulletChartByIdentifierComponentHTML  from '!!raw-loader!../../visualizations/visualization-bullet-chart-by-identifier/visualization-bullet-chart-by-identifier.component.html';
 import  VisualizationBulletChartByIdentifierComponentCSS  from '!!raw-loader!../../visualizations/visualization-bullet-chart-by-identifier/visualization-bullet-chart-by-identifier.component.css';
 
+import { VisualizationGeoChartComponent } from '../../visualizations/visualization-geo-chart/visualization-geo-chart.component';
+import  VisualizationGeoChartComponentSRC  from '!!raw-loader!../../visualizations/visualization-geo-chart/visualization-geo-chart.component.ts';
+import  VisualizationGeoChartComponentHTML  from '!!raw-loader!../../visualizations/visualization-geo-chart/visualization-geo-chart.component.html';
+import  VisualizationGeoChartComponentCSS  from '!!raw-loader!../../visualizations/visualization-geo-chart/visualization-geo-chart.component.css';
+
 @Component({
   selector: 'app-visualization-by-identifier',
   templateUrl: './visualization-by-identifier.component.html',
@@ -127,7 +132,15 @@ export class VisualizationByIdentifierComponent implements OnInit {
       ts: VisualizationBulletChartByIdentifierComponentSRC,
       html: VisualizationBulletChartByIdentifierComponentHTML,
       css: VisualizationBulletChartByIdentifierComponentCSS
+    },
+    {
+      title: 'Geo Chart',
+      for: VisualizationGeoChartComponent,
+      ts: VisualizationGeoChartComponentSRC,
+      html: VisualizationGeoChartComponentHTML,
+      css: VisualizationGeoChartComponentCSS
     }
+    
   ]
 
   ngOnInit() {

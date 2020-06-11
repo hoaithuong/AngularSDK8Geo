@@ -9,7 +9,6 @@ import { workspace } from "../../../utils/fixtures";
 import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
 const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
-
 interface VisualizationAreaChartProps {
   backend: any;
   workspace: any;

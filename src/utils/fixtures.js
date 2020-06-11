@@ -8,7 +8,7 @@ const demoProject = {
     "https://developer.na.gooddata.com": "xms7ga4tf3g3nzucd8380o2bev8oeknp",
 };
 
-const backendUrl = "https://staging3.intgdc.com"; // eslint-disable-line no-undef
+const backendUrl = "https://developer.na.gooddata.com"; // eslint-disable-line no-undef
 const demoProjectId = demoProject[backendUrl];
 if (!demoProjectId) {
     console.error(`[fixtures.js] ProjectId for backend "${backendUrl}" is not in `, demoProject); // eslint-disable-line no-console
