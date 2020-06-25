@@ -1,0 +1,40 @@
+.kpi {
+    height: 60px;
+    margin: 10px 0;
+    font-size: 50px;
+    line-height: 60px;
+    white-space: nowrap;
+    vertical-align: bottom;
+    font-weight: 700;
+}
+.s-execute-kpi {
+    max-height: 200;
+    max-width: "100%";
+    overflow: "auto";
+    padding: "1rem";
+    background-color: "#EEE";
+}
+.gd-message {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 4px 8px 4px 10px;
+    min-height: 1px;
+    line-height: 1.4em;
+    color: #e54d42;
+    background: rgba(229, 77, 66, 0.15);
+    pointer-events: all;
+    max-width: 100%;
+    border-radius: 3px;
+    font-family: avenir, "Helvetica Neue", arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
+}
+.gd-message-text {
+    line-height: 1.4em;
+    color: #e54d42;
+    pointer-events: all;
+    font-family: avenir, "Helvetica Neue", arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
+}

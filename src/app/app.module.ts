@@ -171,8 +171,10 @@ import { GeoPushpinChartConfigurationExampleComponent } from './components/geo-p
 import { GeoPushpinChartConfigurationLegendExampleComponent } from './components/geo-pushpin-chart-configuration-legend-example/geo-pushpin-chart-configuration-legend-example.component';
 import { GeoPushpinChartConfigurationViewportExampleComponent } from './components/geo-pushpin-chart-configuration-viewport-example/geo-pushpin-chart-configuration-viewport-example.component';
 import { GeoPushpinChartConfigurationColorMappingExampleComponent } from './components/geo-pushpin-chart-configuration-color-mapping-example/geo-pushpin-chart-configuration-color-mapping-example.component';
-import { GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent } from './components/geo-pushpin-chart-configuration-points-group-nearby-example/geo-pushpin-chart-configuration-points-group-nearby-example.component'
-
+import { GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent } from './components/geo-pushpin-chart-configuration-points-group-nearby-example/geo-pushpin-chart-configuration-points-group-nearby-example.component';
+import { GeoPushpinChartConfigurationPointsSizeExampleComponent } from './components/geo-pushpin-chart-configuration-points-size-example/geo-pushpin-chart-configuration-points-size-example.component';
+import { ExecuteExampleComponent } from './components/execute-example/execute-example.component';
+import { ExecuteComponentsComponent } from './routes/execute-components/execute-components.component'
 
 @NgModule({
     imports: [
@@ -346,8 +348,10 @@ import { GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent } from '.
         GeoPushpinChartConfigurationLegendExampleComponent,
         GeoPushpinChartConfigurationViewportExampleComponent,
         GeoPushpinChartConfigurationColorMappingExampleComponent,
-        GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent
-    ],
+        GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent,
+        GeoPushpinChartConfigurationPointsSizeExampleComponent,
+        ExecuteExampleComponent,
+        ExecuteComponentsComponent    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
@@ -467,7 +471,9 @@ import { GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent } from '.
         GeoPushpinChartConfigurationLegendExampleComponent,
         GeoPushpinChartConfigurationViewportExampleComponent,
         GeoPushpinChartConfigurationColorMappingExampleComponent,
-        GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent
+        GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent,
+        GeoPushpinChartConfigurationPointsSizeExampleComponent,
+        ExecuteExampleComponent
     ]
 })
 

@@ -33,7 +33,7 @@ import { CombineFilterComponentExamplesComponent } from './routes/combine-filter
 import { CombineAttributeWithMeasureFilterInsightComponent } from './components/combine-attribute-with-measure-filter-insight/combine-attribute-with-measure-filter-insight.component';
 import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './components/combine-attribute-with-measure-filter-insight-component/combine-attribute-with-measure-filter-insight-component.component';
 import { GeoChartExampleComponent } from './routes/geo-chart-example/geo-chart-example.component'
-
+import { ExecuteComponentsComponent } from './routes/execute-components/execute-components.component';
 
 const appRoutes: Routes = [
     { path: '', component: BasicComponentsComponent , canActivate: [AuthGuard] },
@@ -67,6 +67,7 @@ const appRoutes: Routes = [
     { path: 'combine/insight-examples', component: CombineAttributeWithMeasureFilterInsightComponent},
     { path: 'combine/insight-component-examples', component: CombineAttributeWithMeasureFilterInsightComponentComponent},
     { path: 'geochart', component: GeoChartExampleComponent},
+    { path: 'execute', component: ExecuteComponentsComponent},
 
 
     // otherwise redirect to home

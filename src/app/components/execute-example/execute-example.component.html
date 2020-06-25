@@ -1,0 +1,12 @@
+<div class="s-execute" style="height:500px">
+    <p>
+        <button (click)="retry()" class="gd-button gd-button-action s-retry-button">
+            Retry
+        </button>
+        &ensp;(fails every second attempt)
+    </p>
+    <div *ngIf="error" class="gd-message error">
+        <div class="gd-message-text">Oops, simulated error! Retry?</div>        
+    </div>
+    <div [id]="rootDomID"></div>
+</div>

@@ -49,10 +49,15 @@ export class MeasureValueFilterComponentPercentageExampleComponent implements On
   filterValue: any;
 
   measureTitle = "Franchised Sales Ratio";
-  totalSales = [LdmExt.FranchisedSales];
-  locationResort = [Ldm.LocationName.Default];
+  measures = [LdmExt.FranchisedSalesAsPercent];
+  attributes = [Ldm.LocationName.Default];
   state = {
     filters: [],
+  };
+  defaultFilter = {
+    measureValueFilter: {
+        measure: this.measures,
+    },
   };
 
   onApply = filter => {
@@ -85,7 +90,7 @@ export class MeasureValueFilterComponentPercentageExampleComponent implements On
       onApply: this.onApply,
       buttonTitle: this.measureTitle,
       usePercentage: true,
-      measureIdentifier: measureLocalId(LdmExt.FranchisedSales)
+      measureIdentifier: measureLocalId(LdmExt.FranchisedSalesAsPercent)
     };
   }
 
@@ -93,8 +98,8 @@ export class MeasureValueFilterComponentPercentageExampleComponent implements On
     return {
       workspace: workspace,
       backend: backend,
-      measures: this.totalSales,
-      rows: this.locationResort,
+      measures: this.measures,
+      rows: this.attributes,
       filters: this.filters,
     };
   }

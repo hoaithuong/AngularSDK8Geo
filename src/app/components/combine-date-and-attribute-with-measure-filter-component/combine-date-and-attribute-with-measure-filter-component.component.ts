@@ -5,7 +5,7 @@ import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 
 import { ErrorComponent } from "@gooddata/sdk-ui";
-import { DateFilter, DateFilterHelpers, ExtendedDateFilters } from "@gooddata/sdk-ui-filters";
+import { DateFilter, DateFilterHelpers, IDateFilterOptionsByType, DateFilterOption } from "@gooddata/sdk-ui-filters";
 import { MeasureValueFilter } from "@gooddata/sdk-ui-filters";
 import { AttributeFilter } from "@gooddata/sdk-ui-filters";
 import { attributeIdentifier, isPositiveAttributeFilter, isAttributeElementsByRef, IPositiveAttributeFilter, INegativeAttributeFilter, IAttributeFilter } from "@gooddata/sdk-model";
@@ -311,10 +311,10 @@ export class CombineDateAndAttributeWithMeasureFilterComponentComponent implemen
   };
 
   onApplyDate = (
-    selectedFilterOption: ExtendedDateFilters.IAllTimeDateFilter,
+    selectedFilterOption: DateFilterOption,
     excludeCurrentPeriod: boolean,
   ) => {
-    this.selectedFilterOption = selectedFilterOption;
+    this.selectedFilterOption = this.defaultDateFilterOptions.allTime!;
     this.excludeCurrentPeriod = excludeCurrentPeriod;
 
     console.log(

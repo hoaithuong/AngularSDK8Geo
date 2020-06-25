@@ -4,7 +4,7 @@ import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 
-import { DateFilter, ExtendedDateFilters } from "@gooddata/sdk-ui-filters";
+import { DateFilter, IDateFilterOptionsByType, DateFilterOption } from "@gooddata/sdk-ui-filters";
 import { workspace } from "../../../utils/fixtures";
 import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
 const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
@@ -23,7 +23,7 @@ interface DateFilterBucketProps {
 }
 
 interface IDateFilterComponentExampleState {
-  selectedFilterOption: ExtendedDateFilters.DateFilterOption;
+  selectedFilterOption: DateFilterOption;
   excludeCurrentPeriod: boolean;
 }
 
@@ -38,7 +38,7 @@ const availableGranularities = ['GDC.time.date', 'GDC.time.week_us', 'GDC.time.m
 
 export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
 
-  defaultDateFilterOptions: ExtendedDateFilters.IDateFilterOptionsByType = {
+  defaultDateFilterOptions: IDateFilterOptionsByType = {
     allTime: {
       localIdentifier: 'ALL_TIME',
       type: 'allTime',
@@ -225,10 +225,10 @@ export class DateFilterConfigComponent implements OnInit, OnDestroy, OnChanges, 
   excludeCurrentPeriod= false;
 
   onApply = (
-      selectedFilterOption: ExtendedDateFilters.IAllTimeDateFilter,
+      selectedFilterOption: DateFilterOption,
       excludeCurrentPeriod: boolean,
   ) => {
-    this.selectedFilterOption = selectedFilterOption;
+    this.selectedFilterOption = this.defaultDateFilterOptions.allTime!,
     this.excludeCurrentPeriod = excludeCurrentPeriod;
     
     console.log(

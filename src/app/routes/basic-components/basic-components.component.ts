@@ -126,153 +126,153 @@ export class BasicComponentsComponent implements OnInit {
       html: KpiComponentHTML,
       css: KpiComponentCSS
     },
-    {
-      title: 'Head Line',
-      for: HeadlineComponent,
-      ts: HeadlineComponentSRC,
-      html: HeadlineComponentHTML,
-      css: HeadlineComponentCSS
-    },
-    {
-      title: 'Pie chart has 1 measure, 1 attribute',
-      for: PieChartComponent,
-      ts: PieChartComponentSRC,
-      html: PieChartComponentHTML,
-      css: PieChartComponentCSS
-    },
-    {
-      title: 'Table',
-      for: TableComponent,
-      ts: TableComponentSRC,
-      html: TableComponentHTML,
-      css: TableComponentCSS
-    },
-    {
-      title: 'Bar chart has 1 measure, 1 viewBy',
-      for: BarChartComponent,
-      ts: BarChartComponentSRC,
-      html: BarChartComponentHTML,
-      css: BarChartComponentCSS
-    },
-    {
-      title: 'Column chart has 1 measure, 1 viewBy ans sort by measure',
-      for: ColumnChartComponent,
-      ts: ColumnChartComponentSRC,
-      html: ColumnChartComponentHTML,
-      css: ColumnChartComponentCSS
-    },
-    {
-      title: 'Line chart',
-      for: LineChartComponent,
-      ts: LineChartComponentSRC,
-      html: LineChartComponentHTML,
-      css: LineChartComponentCSS
-    },
-    {
-      title: 'Line chart has 1 measures, 1 trendBy, 1 SegmentBy',
-      for: LineChartHasSegmentByComponent,
-      ts: LineChartHasSegmentByComponentSRC,
-      html: LineChartHasSegmentByComponentHTML,
-      css: LineChartHasSegmentByComponentCSS
-    },
-    {
-      title: 'Area Chart has StackBy',
-      for: AreaChartComponent,
-      ts: AreaChartComponentSRC,
-      html: AreaChartComponentHTML,
-      css: AreaChartComponentCSS
-    },
-    {
-      title: 'Area Chart has color palette',
-      for: AreaChartHasColorPaletteComponent,
-      ts: AreaChartHasColorPaletteComponentSRC,
-      html: AreaChartHasColorPaletteComponentHTML,
-      css: AreaChartHasColorPaletteComponentCSS
-    },
-    {
-      title: 'Combo chart',
-      for: ComboChartComponent,
-      ts: ComboChartComponentSRC,
-      html: ComboChartComponentHTML,
-      css: ComboChartComponentCSS
-    },
-    {
-      title: 'Heat Map',
-      for: HeatMapComponent,
-      ts: HeatMapComponentSRC,
-      html: HeatMapComponentHTML,
-      css: HeatMapComponentCSS
-    },
-    {
-      title: 'Tree Map',
-      for: TreemapComponent,
-      ts: TreemapComponentSRC,
-      html: TreemapComponentHTML,
-      css: TreemapComponentCSS
-    },
-    {
-      title: 'Donut chart',
-      for: DonutChartComponent,
-      ts: DonutChartComponentSRC,
-      html: DonutChartComponentHTML,
-      css: DonutChartComponentCSS
-    },
-    {
-      title: 'Scatter Plot',
-      for: ScatterPlotComponent,
-      ts: ScatterPlotComponentSRC,
-      html: ScatterPlotComponentHTML,
-      css: ScatterPlotComponentCSS
-    },
-    {
-      title: 'Bubble Chart',
-      for: BubbleChartComponent,
-      ts: BubbleChartComponentSRC,
-      html: BubbleChartComponentHTML,
-      css: BubbleChartComponentCSS
-    },
-    {
-      title: 'Dual Axes Column Chart',
-      for: DualColumnChartComponent,
-      ts: DualColumnChartComponentSRC,
-      html: DualColumnChartComponentHTML,
-      css: DualColumnChartComponentCSS
-    },
-    {
-      title: 'Pie Chart with color mapping',
-      for: PieChartColorMappingComponent,
-      ts: PieChartColorMappingComponentSRC,
-      html: PieChartColorMappingComponentHTML,
-      css: PieChartColorMappingComponentCSS
-    },
-    {
-      title: 'Bullet Chart',
-      for: BulletChartComponent,
-      ts: BulletChartComponentSRC,
-      html: BulletChartComponentHTML,
-      css: BulletChartComponentCSS
-    },
-    {
-      title: 'Bullet Chart Has AM Measure, PoP measure and Drilling',
-      for: BulletChartHasAmMeasureComponent,
-      ts: BulletChartHasAmMeasureComponentSRC,
-      html: BulletChartHasAmMeasureComponentHTML,
-      css: BulletChartHasAmMeasureComponentCSS
-    },
-    {
-      title: 'Bullet Chart has measure value filter',
-      for: BulletChartHasMeasureValueFilterComponent,
-      ts: BulletChartHasMeasureValueFilterComponentSRC,
-      html: BulletChartHasMeasureValueFilterComponentHTML,
-      css: BulletChartHasMeasureValueFilterComponentCSS
-    },
-    {
-      title: 'Example of Geo Pushpin Chart with Size and Category Legend',
-      for: GeoPushpinChartWithCategoryLegendExampleComponent,
-      ts: GeoPushpinChartWithCategoryLegendExampleComponentSRC,
-      html: GeoPushpinChartWithCategoryLegendExampleComponentHTML,
-      css: GeoPushpinChartWithCategoryLegendExampleComponentCSS
-    },
+    // {
+    //   title: 'Head Line',
+    //   for: HeadlineComponent,
+    //   ts: HeadlineComponentSRC,
+    //   html: HeadlineComponentHTML,
+    //   css: HeadlineComponentCSS
+    // },
+    // {
+    //   title: 'Pie chart has 1 measure, 1 attribute',
+    //   for: PieChartComponent,
+    //   ts: PieChartComponentSRC,
+    //   html: PieChartComponentHTML,
+    //   css: PieChartComponentCSS
+    // },
+    // {
+    //   title: 'Table',
+    //   for: TableComponent,
+    //   ts: TableComponentSRC,
+    //   html: TableComponentHTML,
+    //   css: TableComponentCSS
+    // },
+    // {
+    //   title: 'Bar chart has 1 measure, 1 viewBy',
+    //   for: BarChartComponent,
+    //   ts: BarChartComponentSRC,
+    //   html: BarChartComponentHTML,
+    //   css: BarChartComponentCSS
+    // },
+    // {
+    //   title: 'Column chart has 1 measure, 1 viewBy ans sort by measure',
+    //   for: ColumnChartComponent,
+    //   ts: ColumnChartComponentSRC,
+    //   html: ColumnChartComponentHTML,
+    //   css: ColumnChartComponentCSS
+    // },
+    // {
+    //   title: 'Line chart',
+    //   for: LineChartComponent,
+    //   ts: LineChartComponentSRC,
+    //   html: LineChartComponentHTML,
+    //   css: LineChartComponentCSS
+    // },
+    // {
+    //   title: 'Line chart has 1 measures, 1 trendBy, 1 SegmentBy',
+    //   for: LineChartHasSegmentByComponent,
+    //   ts: LineChartHasSegmentByComponentSRC,
+    //   html: LineChartHasSegmentByComponentHTML,
+    //   css: LineChartHasSegmentByComponentCSS
+    // },
+    // {
+    //   title: 'Area Chart has StackBy',
+    //   for: AreaChartComponent,
+    //   ts: AreaChartComponentSRC,
+    //   html: AreaChartComponentHTML,
+    //   css: AreaChartComponentCSS
+    // },
+    // {
+    //   title: 'Area Chart has color palette',
+    //   for: AreaChartHasColorPaletteComponent,
+    //   ts: AreaChartHasColorPaletteComponentSRC,
+    //   html: AreaChartHasColorPaletteComponentHTML,
+    //   css: AreaChartHasColorPaletteComponentCSS
+    // },
+    // {
+    //   title: 'Combo chart',
+    //   for: ComboChartComponent,
+    //   ts: ComboChartComponentSRC,
+    //   html: ComboChartComponentHTML,
+    //   css: ComboChartComponentCSS
+    // },
+    // {
+    //   title: 'Heat Map',
+    //   for: HeatMapComponent,
+    //   ts: HeatMapComponentSRC,
+    //   html: HeatMapComponentHTML,
+    //   css: HeatMapComponentCSS
+    // },
+    // {
+    //   title: 'Tree Map',
+    //   for: TreemapComponent,
+    //   ts: TreemapComponentSRC,
+    //   html: TreemapComponentHTML,
+    //   css: TreemapComponentCSS
+    // },
+    // {
+    //   title: 'Donut chart',
+    //   for: DonutChartComponent,
+    //   ts: DonutChartComponentSRC,
+    //   html: DonutChartComponentHTML,
+    //   css: DonutChartComponentCSS
+    // },
+    // {
+    //   title: 'Scatter Plot',
+    //   for: ScatterPlotComponent,
+    //   ts: ScatterPlotComponentSRC,
+    //   html: ScatterPlotComponentHTML,
+    //   css: ScatterPlotComponentCSS
+    // },
+    // {
+    //   title: 'Bubble Chart',
+    //   for: BubbleChartComponent,
+    //   ts: BubbleChartComponentSRC,
+    //   html: BubbleChartComponentHTML,
+    //   css: BubbleChartComponentCSS
+    // },
+    // {
+    //   title: 'Dual Axes Column Chart',
+    //   for: DualColumnChartComponent,
+    //   ts: DualColumnChartComponentSRC,
+    //   html: DualColumnChartComponentHTML,
+    //   css: DualColumnChartComponentCSS
+    // },
+    // {
+    //   title: 'Pie Chart with color mapping',
+    //   for: PieChartColorMappingComponent,
+    //   ts: PieChartColorMappingComponentSRC,
+    //   html: PieChartColorMappingComponentHTML,
+    //   css: PieChartColorMappingComponentCSS
+    // },
+    // {
+    //   title: 'Bullet Chart',
+    //   for: BulletChartComponent,
+    //   ts: BulletChartComponentSRC,
+    //   html: BulletChartComponentHTML,
+    //   css: BulletChartComponentCSS
+    // },
+    // {
+    //   title: 'Bullet Chart Has AM Measure, PoP measure and Drilling',
+    //   for: BulletChartHasAmMeasureComponent,
+    //   ts: BulletChartHasAmMeasureComponentSRC,
+    //   html: BulletChartHasAmMeasureComponentHTML,
+    //   css: BulletChartHasAmMeasureComponentCSS
+    // },
+    // {
+    //   title: 'Bullet Chart has measure value filter',
+    //   for: BulletChartHasMeasureValueFilterComponent,
+    //   ts: BulletChartHasMeasureValueFilterComponentSRC,
+    //   html: BulletChartHasMeasureValueFilterComponentHTML,
+    //   css: BulletChartHasMeasureValueFilterComponentCSS
+    // },
+    // {
+    //   title: 'Example of Geo Pushpin Chart with Size and Category Legend',
+    //   for: GeoPushpinChartWithCategoryLegendExampleComponent,
+    //   ts: GeoPushpinChartWithCategoryLegendExampleComponentSRC,
+    //   html: GeoPushpinChartWithCategoryLegendExampleComponentHTML,
+    //   css: GeoPushpinChartWithCategoryLegendExampleComponentCSS
+    // },
   ]
 
   ngOnInit() {

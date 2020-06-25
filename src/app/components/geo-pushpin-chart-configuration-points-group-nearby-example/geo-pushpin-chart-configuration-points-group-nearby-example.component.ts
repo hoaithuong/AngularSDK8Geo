@@ -8,11 +8,8 @@ import "@gooddata/react-components/styles/css/main.css";
 import { GeoPushpinChart } from '@gooddata/sdk-ui-geo';
 import { locationAttribute } from "../../../ldm/geoModel";
 import { MAPBOX_TOKEN } from '../../../utils/fixturesGeoChart';
-import { Ldm } from "../../../ldm";
 import { workspace } from "../../../utils/fixtures";
 import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
-
-let self: any;
 
 const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 type State = {
@@ -45,11 +42,11 @@ export class GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent imple
   state = {
     groupNearbyPoints: false,
   };
-  
+
   geoConfig = {
     mapboxToken: MAPBOX_TOKEN,
     points: {
-        groupNearbyPoints: this.state.groupNearbyPoints,
+      groupNearbyPoints: this.state.groupNearbyPoints,
     },
   };
   public rootDomID: string;
@@ -67,12 +64,17 @@ export class GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent imple
     return node;
   }
 
-  protected getProps(): GeoChartProps {
-    return {      
+  protected getProps(groupNearbyPoints): GeoChartProps {
+    return {
       backend: backend,
       workspace: workspace,
       location: locationAttribute,
-      config: this.geoConfig,
+      config: {
+        mapboxToken: MAPBOX_TOKEN,
+        points: {
+          groupNearbyPoints: groupNearbyPoints,
+        },
+      },
       onZoomChanged: this.onZoomChanged,
       onCenterPositionChanged: this.onCenterPositionChanged,
       onLoadingChanged: this.onLoadingChanged,
@@ -84,54 +86,55 @@ export class GeoPushpinChartConfigurationPointsGroupNearbyExampleComponent imple
     return !!this.rootDomID;
   }
 
-  private toggleGroupNearbyPoints = () => {
-      this.state.groupNearbyPoints = !this.state.groupNearbyPoints
+  toggleGroupNearbyPoints = () => {
+    this.state = {
+      groupNearbyPoints: !this.state.groupNearbyPoints,
+    }
+    this.renderchart();
   };
 
-private onLoadingChanged(...params: any[]) {
+  private onLoadingChanged(...params: any[]) {
     // tslint:disable-next-line:no-console
     return console.log(
-        "GeoPushpinChartConfigurationPointsGroupNearbyExample onLoadingChanged",
-        ...params,
+      "GeoPushpinChartConfigurationPointsGroupNearbyExample onLoadingChanged",
+      ...params,
     );
-    
-}
+  }
 
-private onError(...params: any[]) {
+  private onError(...params: any[]) {
     // tslint:disable-next-line:no-console
     return console.log("GeoPushpinChartConfigurationPointsGroupNearbyExample onError", ...params);
-}
+  }
 
-private onZoomChanged(...params: any[]) {
+  private onZoomChanged(...params: any[]) {
     // tslint:disable-next-line:no-console
     return console.log("GeoPushpinChartConfigurationPointsGroupNearbyExample onZoomChanged", ...params);
-}
+  }
 
-private onCenterPositionChanged(...params: any[]) {
+  private onCenterPositionChanged(...params: any[]) {
     // tslint:disable-next-line:no-console
     return console.log(
-        "GeoPushpinChartConfigurationPointsGroupNearbyExample onCenterPositionChanged",
-        ...params,
+      "GeoPushpinChartConfigurationPointsGroupNearbyExample onCenterPositionChanged",
+      ...params,
     );
-}
+  }
 
   protected render() {
     ReactDOM.render(React.createElement("button", {
       className: "s-change-group-nearby-points",
-      onClick: this.toggleGroupNearbyPoints()
-    }, "Toggle Group nearby points"),this.getbtnRootDomNode());
+      onClick: this.toggleGroupNearbyPoints
+    }, "Toggle Group nearby points"), this.getbtnRootDomNode());
     this.renderchart();
   }
 
   protected renderchart() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(GeoPushpinChart, this.getProps()), this.getRootDomNode());
+      ReactDOM.render(React.createElement(GeoPushpinChart, this.getProps(this.state.groupNearbyPoints)), this.getRootDomNode());
     }
-    }
+  }
 
 
   ngOnInit() {
-    self = this;
     this.rootDomID = uuid.v4();
     this.rootDombtnID = uuid.v4();
   }

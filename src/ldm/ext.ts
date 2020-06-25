@@ -50,6 +50,7 @@ export const franchiseSalesComputeRatioLocalId = "franchiseSalesComputeRatio";
 
 export const averageRestaurantDailyCostsIdentifier = "aaQJzQzoeKwZ";
 export const totalSalesIdentifier = "aa7ulGyKhIE5";
+export const franchiseFeesIdentifier = "aaEGaXAEgB7U";
 export const dateDatasetIdentifier = "date.dataset.dt";
 export const franchiseFeesTag = "franchise_fees";
 export const yearDateDataSetAttributeIdentifier = "date.year";
@@ -81,7 +82,7 @@ export const FranchisedSales = modifyMeasure(Ldm.$FranchisedSales, m =>
 );
 export const FranchisedSalesAsPercent = modifyMeasure(Ldm.$FranchisedSales, m =>
     m
-        .format("#,##0")
+        .format("#,##0%")
         .title("Franchise Sales")
         .localId(franchiseSalesAsPercentageLocalId),
 );

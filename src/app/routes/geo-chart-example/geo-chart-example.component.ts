@@ -39,6 +39,11 @@ import  GeoPushpinChartConfigurationPointsGroupNearbyExampleComponentSRC  from '
 import  GeoPushpinChartConfigurationPointsGroupNearbyExampleComponentHTML  from '!!raw-loader!../../components/geo-pushpin-chart-configuration-points-group-nearby-example/geo-pushpin-chart-configuration-points-group-nearby-example.component.html';
 import  GeoPushpinChartConfigurationPointsGroupNearbyExampleComponentCSS  from '!!raw-loader!../../components/geo-pushpin-chart-configuration-points-group-nearby-example/geo-pushpin-chart-configuration-points-group-nearby-example.component.css';
 
+import { GeoPushpinChartConfigurationPointsSizeExampleComponent } from '../../components/geo-pushpin-chart-configuration-points-size-example/geo-pushpin-chart-configuration-points-size-example.component';
+import  GeoPushpinChartConfigurationPointsSizeExampleComponentSRC  from '!!raw-loader!../../components/geo-pushpin-chart-configuration-points-size-example/geo-pushpin-chart-configuration-points-size-example.component.ts';
+import  GeoPushpinChartConfigurationPointsSizeExampleComponentHTML  from '!!raw-loader!../../components/geo-pushpin-chart-configuration-points-size-example/geo-pushpin-chart-configuration-points-size-example.component.html';
+import  GeoPushpinChartConfigurationPointsSizeExampleComponentCSS  from '!!raw-loader!../../components/geo-pushpin-chart-configuration-points-size-example/geo-pushpin-chart-configuration-points-size-example.component.css';
+
 @Component({
   selector: 'app-geo-chart-example',
   templateUrl: './geo-chart-example.component.html',
@@ -103,6 +108,13 @@ export class GeoChartExampleComponent implements OnInit {
       ts: GeoPushpinChartConfigurationPointsGroupNearbyExampleComponentSRC,
       html: GeoPushpinChartConfigurationPointsGroupNearbyExampleComponentHTML,
       css: GeoPushpinChartConfigurationPointsGroupNearbyExampleComponentCSS
+    },
+    {
+      title: 'Example of Geo Pushpin Chart with Configuration - Points size',
+      for: GeoPushpinChartConfigurationPointsSizeExampleComponent,
+      ts: GeoPushpinChartConfigurationPointsSizeExampleComponentSRC,
+      html: GeoPushpinChartConfigurationPointsSizeExampleComponentHTML,
+      css: GeoPushpinChartConfigurationPointsSizeExampleComponentCSS
     },
   ]
 

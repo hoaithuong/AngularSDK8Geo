@@ -4,7 +4,7 @@ import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 
-import { DateFilter, DateFilterHelpers, ExtendedDateFilters } from "@gooddata/sdk-ui-filters";
+import { DateFilter, DateFilterHelpers, IDateFilterOptionsByType, DateFilterOption } from "@gooddata/sdk-ui-filters";
 import { PivotTable } from "@gooddata/sdk-ui-pivot";
 import { Ldm, LdmExt } from "../../../ldm";
 import { workspace } from "../../../utils/fixtures";
@@ -254,10 +254,10 @@ export class DateFilterConfigExampleComponent implements OnInit, OnDestroy, OnCh
   }
 
   onApply = (
-    selectedFilterOption: ExtendedDateFilters.IAllTimeDateFilter,
+    selectedFilterOption: DateFilterOption,
     excludeCurrentPeriod: boolean,
   ) => {
-    this.selectedFilterOption = selectedFilterOption;
+    this.selectedFilterOption = this.defaultDateFilterOptions.allTime!,
     this.excludeCurrentPeriod = excludeCurrentPeriod;
 
     console.log(

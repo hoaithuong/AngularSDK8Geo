@@ -11,8 +11,8 @@
 @import "@gooddata/sdk-ui-charts/styles/css/charts.css";
 
 @import "@gooddata/sdk-ui-filters/styles/css/main.css";
-/* @import "@gooddata/sdk-ui-filters/styles/css/attributeFilter.css"; */
-/* @import "@gooddata/sdk-ui-filters/styles/css/measureValueFilter.css";  */
+@import "@gooddata/sdk-ui-filters/styles/css/attributeFilter.css";
+@import "@gooddata/sdk-ui-filters/styles/css/measureValueFilter.css"; 
 /* @import "@gooddata/sdk-ui-filters/styles/css/dateFilter.css"; */
 
 @import "@gooddata/sdk-ui-geo/styles/css/main.css";

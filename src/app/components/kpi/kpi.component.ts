@@ -4,15 +4,17 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-import { Kpi } from '@gooddata/react-components';
-import {
-  projectId,
-  totalSalesIdentifier
-} from '../../../utils/fixtures.js';
+// import { Kpi } from '@gooddata/react-components';
+import { Kpi } from "@gooddata/sdk-ui";
+import { Ldm } from "../../../ldm";
+import { workspace } from "../../../utils/fixtures";
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
 interface KpiProps {
-  measure: string;
-  projectId: any;
+  measure: any;
+  workspace: any;
+  backend: any;
 }
 
 @Component({
@@ -31,8 +33,10 @@ export class KpiComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit
 
   protected getProps(): KpiProps {
     return {
-      projectId: projectId,
-      measure: totalSalesIdentifier,
+      workspace: workspace,
+      backend: backend,
+      measure: Ldm.$TotalSales,
+      // measure: LdmExt.totalSalesIdentifier,
     };
   }
 
