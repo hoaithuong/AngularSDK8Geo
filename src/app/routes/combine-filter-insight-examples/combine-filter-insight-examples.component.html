@@ -27,13 +27,13 @@
             <a class='gd-tab' mat-list-item [routerLink]="'/combine/examples'"> Combine Filter Examples </a>
             <a class='gd-tab' mat-list-item [routerLink]="'/combine/component-examples'"> Combine Filter Component Examples </a>
             <a class='gd-tab is-active' mat-list-item [routerLink]="'/combine/insight-examples'"> Combine Filter Insight Examples </a>
-            <a class='gd-tab' mat-list-item [routerLink]="'/combine/insight-component-examples'"> Combine Filter Insight Component Examples </a>
+            <a class='gd-tab ' mat-list-item [routerLink]="'/combine/insight-component-examples'"> Combine Filter Insight Component Examples </a>
         </div>
-        <h2>Combine Filter Examples in Insight</h2>
-        <p>These examples show how to use the Combine Filter component in Insight view.</p>
+        <h2>Combine Filter Examples</h2>
+        <p>These examples show how to use the Combine Filter component.</p>
         <!-- <hr class="separator"/> -->
         <div class='example-wrapper'>
-          <div *ngFor="let item of combineFilterArray"> 
+          <div *ngFor="let item of combineExampleFilterArray"> 
             <hr class="separator"/>
             <h3>{{ item.title }}</h3>
             <p>{{ item.content }}</p>

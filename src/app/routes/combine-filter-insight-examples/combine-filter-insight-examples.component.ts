@@ -13,12 +13,11 @@ import  CombineAttributeWithMeasureFilterInsightComponentCSS  from '!!raw-loader
 export class CombineFilterInsightExamplesComponent implements OnInit {
 
   constructor() { }
-  combineFilterArray = [
+  
+  combineExampleFilterArray = [
     {
       title: 'Attribute and Measure Value Filter in Insight',
-      content: [
-        `Combine Filter with Attribute Filter and Measure Value Filter in Insight view`
-      ],
+      content: `Combine Filter with Attribute Filter and Measure Value Filter in Insight view`,
       for: CombineAttributeWithMeasureFilterInsightComponent,
       ts: CombineAttributeWithMeasureFilterInsightComponentSRC,
       html: CombineAttributeWithMeasureFilterInsightComponentHTML,

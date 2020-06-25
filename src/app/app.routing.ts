@@ -30,8 +30,8 @@ import { ChartConfigComponentsComponent } from './routes/chart-config-components
 import { DynamicMeasureComponentComponent } from './routes/dynamic-measure-component/dynamic-measure-component.component';
 import { CombineFilterExamplesComponent } from './routes/combine-filter-examples/combine-filter-examples.component';
 import { CombineFilterComponentExamplesComponent } from './routes/combine-filter-component-examples/combine-filter-component-examples.component';
-import { CombineAttributeWithMeasureFilterInsightComponent } from './components/combine-attribute-with-measure-filter-insight/combine-attribute-with-measure-filter-insight.component';
-import { CombineAttributeWithMeasureFilterInsightComponentComponent } from './components/combine-attribute-with-measure-filter-insight-component/combine-attribute-with-measure-filter-insight-component.component';
+import { CombineFilterInsightExamplesComponent } from './routes/combine-filter-insight-examples/combine-filter-insight-examples.component';
+import { CombineFilterInsightComponentExamplesComponent } from './routes/combine-filter-insight-component-examples/combine-filter-insight-component-examples.component';
 import { GeoChartExampleComponent } from './routes/geo-chart-example/geo-chart-example.component'
 import { ExecuteComponentsComponent } from './routes/execute-components/execute-components.component';
 
@@ -64,8 +64,8 @@ const appRoutes: Routes = [
     { path: 'advanced/dynamic-measures', component: DynamicMeasureComponentComponent},
     { path: 'combine/examples', component: CombineFilterExamplesComponent},
     { path: 'combine/component-examples', component: CombineFilterComponentExamplesComponent},
-    { path: 'combine/insight-examples', component: CombineAttributeWithMeasureFilterInsightComponent},
-    { path: 'combine/insight-component-examples', component: CombineAttributeWithMeasureFilterInsightComponentComponent},
+    { path: 'combine/insight-examples', component: CombineFilterInsightExamplesComponent},
+    { path: 'combine/insight-component-examples', component: CombineFilterInsightComponentExamplesComponent},
     { path: 'geochart', component: GeoChartExampleComponent},
     { path: 'execute', component: ExecuteComponentsComponent},
 

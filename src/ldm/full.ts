@@ -1338,8 +1338,8 @@ export const Insights = {
      * Insight ID: abHVSjwFgk4i
      */
     PivotTableThg: "aajZLB2YexVZ",
-    AreachartThg: "aasZKdyAbPdK",
-    AvgEntreePercent: "abHVSjwFgk4i",
+    // AreachartThg: "aasZKdyAbPdK",
+    // AvgEntreePercent: "abHVSjwFgk4i",
     /**
      * Insight Title: Total Sales by City
      * Insight ID: acPWDTL2bJeX

@@ -227,7 +227,7 @@ export class CombineAttributeWithMeasureFilterInsightComponentComponent implemen
     return {
       workspace: workspace,
       backend: backend,
-      insight: Ldm.Insights.AreachartThg,
+      insight: Ldm.Insights.TableToPivot,
       filters: filters
     };
   }

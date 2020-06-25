@@ -1,19 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DateFilterConfigComponent } from '../../components/date-filter-config/date-filter-config.component';
-import  DateFilterConfigComponentSRC  from '!!raw-loader!../../components/date-filter-config/date-filter-config.component.ts';
-import  DateFilterConfigComponentHTML  from '!!raw-loader!../../components/date-filter-config/date-filter-config.component.html';
-import  DateFilterConfigComponentCSS  from '!!raw-loader!../../components/date-filter-config/date-filter-config.component.css';
-
-import { DateFilterConfigExampleComponent } from '../../components/date-filter-config-example/date-filter-config-example.component';
-import  DateFilterConfigExampleComponentSRC  from '!!raw-loader!../../components/date-filter-config-example/date-filter-config-example.component.ts';
-import  DateFilterConfigExampleComponentHTML  from '!!raw-loader!../../components/date-filter-config-example/date-filter-config-example.component.html';
-import  DateFilterConfigExampleComponentCSS  from '!!raw-loader!../../components/date-filter-config-example/date-filter-config-example.component.css';
-
-import { DateFilterVisComponent } from '../../visualizations/visualization-date-filter/visualization-date-filter.component';
-import  DateFilterVisComponentSRC  from '!!raw-loader!../../visualizations/visualization-date-filter/visualization-date-filter.component.ts';
-import  DateFilterVisComponentHTML  from '!!raw-loader!../../visualizations/visualization-date-filter/visualization-date-filter.component.html';
-import  DateFilterVisComponentCSS  from '!!raw-loader!../../visualizations/visualization-date-filter/visualization-date-filter.component.css';
-
 import {CombineAttributeWithMeasureFilterComponent} from '../../components/combine-attribute-with-measure-filter/combine-attribute-with-measure-filter.component';
 import  CombineAttributeWithMeasureFilterComponentSRC  from '!!raw-loader!../../components/combine-attribute-with-measure-filter/combine-attribute-with-measure-filter.component.ts';
 import  CombineAttributeWithMeasureFilterComponentHTML  from '!!raw-loader!../../components/combine-attribute-with-measure-filter/combine-attribute-with-measure-filter.component.html';

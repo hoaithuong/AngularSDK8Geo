@@ -33,7 +33,7 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
     return {
       workspace: workspace,
       backend: backend,
-      insight: Ldm.Insights.AreachartThg,
+      insight: Ldm.Insights.TableToPivot,
     };
   }
 
