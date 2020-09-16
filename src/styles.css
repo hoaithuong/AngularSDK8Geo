@@ -17,6 +17,8 @@
 
 @import "@gooddata/sdk-ui-geo/styles/css/main.css";
 @import "@gooddata/sdk-ui-ext/styles/css/insightView.css";
+@import "@gooddata/sdk-ui-ext/styles/css/geoChart.css";
+/* @import '@gooddata/react-components/styles/css/geoChart.css'; */
 
 
 /* html, body { height: 100%; }
